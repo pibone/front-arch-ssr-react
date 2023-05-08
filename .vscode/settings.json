@@ -9,6 +9,9 @@
         "source.organizeImports": false
     },
     "eslint.codeActionsOnSave.mode": "problems",
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
+    "javascript.suggestionActions.enabled": false,
     "eslint.validate": [
         "typescript",
         "typescriptreact",
