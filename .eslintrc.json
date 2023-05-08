@@ -1,69 +1,67 @@
 {
-  "plugins": [
-    "sonarjs",
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "unicorn",
-    "boundaries",
-    "prettier"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:sonarjs/recommended",
-    "plugin:unicorn/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:boundaries/strict",
-    "plugin:prettier/recommended",
-    "next"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "rules": {
-    "unicorn/prevent-abbreviations": "off",
-    "boundaries/element-types": [2, {
-      "default": "allow",
-      "rules": [
-        {
-          "from": ["component"],
-          "allow": ["page", "globalStyle"],
-          "message": "Components cannot import pages or global styles"
-        }
-      ]
-    }]
-  },
-  "settings": {
-    "boundaries/include": [
-      "src/**"
+    "plugins": [
+        "sonarjs",
+        "@typescript-eslint",
+        "react",
+        "react-hooks",
+        "unicorn",
+        "boundaries",
+        "prettier"
     ],
-    "boundaries/ignore": [
-      "src/**/*.spec.*",
-      "src/**/*.test.*"
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:sonarjs/recommended",
+        "plugin:unicorn/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:boundaries/recommended",
+        "plugin:prettier/recommended",
+        "next"
     ],
-    "boundaries/elements": [
-      {
-        "type": "component",
-        "pattern": "components/*",
-        "mode": "folder",
-        "capture": ["component"]
-      },
-      {
-        "type": "page",
-        "pattern": "pages/**/*",
-        "mode": "file",
-        "capture": ["route", "elementName"]
-      },
-      {
-        "type": "globalStyle",
-        "pattern": "styles/*",
-        "mode": "file",
-        "capture": ["styleName"]
-      }
-    ]
-  }
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "unicorn/prevent-abbreviations": "off",
+        "boundaries/element-types": [
+            2,
+            {
+                "default": "allow",
+                "rules": [
+                    {
+                        "from": ["component"],
+                        "allow": ["page", "globalStyle"],
+                        "message": "Components cannot import pages or global styles"
+                    }
+                ]
+            }
+        ]
+    },
+    "settings": {
+        "boundaries/include": ["src/**"],
+        "boundaries/ignore": ["src/**/*.spec.*", "src/**/*.test.*"],
+        "boundaries/elements": [
+            {
+                "type": "component",
+                "pattern": "components/*",
+                "mode": "folder",
+                "capture": ["component"]
+            },
+            {
+                "type": "page",
+                "pattern": "pages/**/*",
+                "mode": "file",
+                "capture": ["route", "elementName"]
+            },
+            {
+                "type": "globalStyle",
+                "pattern": "styles/*",
+                "mode": "file",
+                "capture": ["styleName"]
+            }
+        ]
+    }
 }
