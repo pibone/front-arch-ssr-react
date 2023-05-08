@@ -25,6 +25,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+        "@next/next/no-html-link-for-pages": "off",
         "unicorn/prevent-abbreviations": "off",
         "boundaries/element-types": [
             2,
