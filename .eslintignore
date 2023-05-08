@@ -1,2 +1,4 @@
-next.config.js
-!src
+*.[tj]s
+*.[tj]sx
+
+!src/**/*
