@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx echo-cli "\033[0;34m>>> Running prettier on the codebase ...\033[0m"
-npx prettier --write "./{src,test}/**/*.{tsx,ts}"
-
 npx echo-cli "\033[0;34m>>> Linting the code\033[0m"
 npm run --silent lint 
