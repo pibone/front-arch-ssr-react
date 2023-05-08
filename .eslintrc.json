@@ -27,8 +27,6 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "unicorn/no-new-array": "off",
-        "unicorn/prevent-abbreviations": "off",
         "boundaries/element-types": [
             2,
             {
@@ -56,10 +54,12 @@
                 "endOfLine": "auto"
             }
         ],
+        "@next/next/no-html-link-for-pages": "off",
+        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/require-await": "off",
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"],
-        "@next/next/no-html-link-for-pages": "off"
+        "unicorn/no-new-array": "off",
+        "unicorn/prevent-abbreviations": "off"
     },
     "settings": {
         "boundaries/include": ["src/**"],
