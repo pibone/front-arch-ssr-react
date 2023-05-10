@@ -1,5 +1,5 @@
 import { RequestOptions, ResponseOptions } from '@pact-foundation/pact'
-import { pactWith } from 'jest-pact'
+import { pactWith, JestPactOptions } from 'jest-pact'
 
 export type PactTestConfig<TClient> = Omit<RequestOptions, 'path'> & {
     path?: string
