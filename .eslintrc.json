@@ -55,7 +55,10 @@
             }
         ],
         "@next/next/no-html-link-for-pages": "off",
-        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            { "argsIgnorePattern": "^_|^props$" }
+        ],
         "@typescript-eslint/require-await": "off",
         "no-unused-vars": "off",
         "unicorn/no-new-array": "off",
