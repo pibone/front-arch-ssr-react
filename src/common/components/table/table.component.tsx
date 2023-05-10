@@ -1,6 +1,6 @@
 import React from 'react'
 import { Column, HeaderGroup, Row, TableBodyProps, useTable } from 'react-table'
-import styles from './table.module.scss'
+import styles from './table.module.css'
 
 export type TableProps<T extends object> = {
     data: T[]

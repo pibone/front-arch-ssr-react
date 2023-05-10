@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import classNames from 'classnames'
-import styles from './button.module.scss'
+import styles from './button.module.css'
 
 export type ButtonProps = PropsWithChildren<{
     onClick?: React.MouseEventHandler<HTMLDivElement>
