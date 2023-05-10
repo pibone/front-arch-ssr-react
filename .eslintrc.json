@@ -6,7 +6,8 @@
         "react-hooks",
         "unicorn",
         "boundaries",
-        "prettier"
+        "prettier",
+        "jest-extended"
     ],
     "extends": [
         "eslint:recommended",
@@ -26,7 +27,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "@next/next/no-html-link-for-pages": "off",
+        "unicorn/no-new-array": "off",
         "unicorn/prevent-abbreviations": "off",
         "boundaries/element-types": [
             2,
@@ -40,7 +41,25 @@
                     }
                 ]
             }
-        ]
+        ],
+        "@typescript-eslint/no-misused-promises": [
+            2,
+            {
+                "checksVoidReturn": {
+                    "attributes": false
+                }
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
+        "@typescript-eslint/require-await": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@next/next/no-html-link-for-pages": "off"
     },
     "settings": {
         "boundaries/include": ["src/**"],

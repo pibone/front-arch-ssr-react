@@ -10,6 +10,7 @@
         "42crunch.vscode-openapi",
         "ms-playwright.playwright",
         "clinyong.vscode-css-modules",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "teamchilla.blueprint"
     ]
 }
