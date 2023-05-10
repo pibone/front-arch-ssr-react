@@ -1,1 +1,1 @@
-export { MainView } from './main.view'
+export { UsersMainView } from './users-main.view'

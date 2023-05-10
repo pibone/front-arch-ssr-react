@@ -1,1 +1,1 @@
-export { MainView as default } from '@/modules/app/views/main'
+export { AppMainView as default } from '@/modules/app/views/main'

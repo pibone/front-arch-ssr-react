@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { MainView } from './main.view'
+import { AppMainView } from './app-main.view'
 
-const meta: Meta<typeof MainView> = {
-    title: 'MainView',
-    component: MainView,
+const meta: Meta<typeof AppMainView> = {
+    title: 'AppMainView',
+    component: AppMainView,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof MainView>
+type Story = StoryObj<typeof AppMainView>
 
 export const Default: Story = {
     args: {},
     async play({ canvasElement }) {
         const canvas = within(canvasElement)
-        const container = canvas.getByTestId('main-view')
+        const container = canvas.getByTestId('app-main-view')
 
         expect(container).toBeTruthy()
     },

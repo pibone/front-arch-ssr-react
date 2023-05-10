@@ -1,1 +1,1 @@
-export { MainView } from './main.view'
+export { AppMainView } from './app-main.view'
