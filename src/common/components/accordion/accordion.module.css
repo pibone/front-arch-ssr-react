@@ -1,0 +1,23 @@
+.item {
+    @apply border-b;
+}
+
+.header {
+    @apply flex;
+}
+
+.icon {
+    @apply h-4 w-4 transition-transform duration-200;
+}
+
+.content {
+    @apply overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down;
+}
+
+.contentWrapper {
+    @apply pb-4 pt-0;
+}
+
+.trigger {
+    @apply flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180;
+}
