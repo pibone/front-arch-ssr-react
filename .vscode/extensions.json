@@ -11,6 +11,8 @@
         "ms-playwright.playwright",
         "clinyong.vscode-css-modules",
         "esbenp.prettier-vscode",
-        "teamchilla.blueprint"
+        "teamchilla.blueprint",
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss"
     ]
 }
