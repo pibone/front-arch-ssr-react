@@ -1,4 +1,4 @@
-import '@/styles/main.scss'
+import '@/styles/main.css'
 
 export const metadata = {
     title: 'Next SSR Archetype',
