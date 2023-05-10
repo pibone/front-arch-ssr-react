@@ -1,6 +1,6 @@
 
 import { {{ camelCase name }}ApiProto } from './{{ kebabCase name }}.api'
-import { apiPactWith } from '@/common/api/api.test-utils'
+import { apiPactWith } from '@/common/api/test-utils'
 import { {{ camelCase name }}Sampler } from './{{ kebabCase name }}.sample'
 
 apiPactWith({
