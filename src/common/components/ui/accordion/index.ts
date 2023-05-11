@@ -1,3 +1,3 @@
 'use client'
 
-export { AccordionRoot as Accordion } from './accordion.component'
+export { Accordion } from './accordion.component'
