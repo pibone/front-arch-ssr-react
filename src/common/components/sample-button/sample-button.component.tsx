@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
-import classNames from 'classnames'
 import styles from './sample-button.module.css'
+import { Button } from '../ui/button'
 
 export type SampleButtonProps = PropsWithChildren<{
     onClick?: React.MouseEventHandler<HTMLDivElement>
@@ -8,12 +8,12 @@ export type SampleButtonProps = PropsWithChildren<{
 
 export function SampleButton(props: SampleButtonProps) {
     return (
-        <div
-            data-testid="button"
-            className={classNames(styles.container)}
+        <Button
+            data-testid="sample-button"
+            className={styles.container}
             onClick={(e) => props.onClick?.(e)}
         >
             {props.children}
-        </div>
+        </Button>
     )
 }
