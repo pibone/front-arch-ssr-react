@@ -1,5 +1,11 @@
 .container {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+    @apply inline-flex items-center justify-center 
+    rounded-md text-sm font-medium 
+    transition-colors 
+    focus-visible:outline-none focus-visible:ring-2 
+    focus-visible:ring-ring focus-visible:ring-offset-2
+    disabled:opacity-50 disabled:pointer-events-none 
+    ring-offset-background;
 }
 
 /* variants */
@@ -12,8 +18,12 @@
     @apply bg-secondary text-secondary-fg hover:bg-secondary/80;
 }
 
-.destructive {
-    @apply bg-destructive text-destructive-fg hover:bg-destructive/90;
+.danger {
+    @apply bg-danger text-danger-fg hover:bg-danger/90;
+}
+
+.muted {
+    @apply bg-muted text-muted-fg cursor-not-allowed;
 }
 
 .outline {

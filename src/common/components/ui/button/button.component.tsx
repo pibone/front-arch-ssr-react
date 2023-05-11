@@ -8,7 +8,8 @@ const buttonVariants = cva(styles.container, {
         variant: {
             primary: styles.primary,
             secondary: styles.secondary,
-            destructive: styles.destructive,
+            danger: styles.danger,
+            muted: styles.muted,
             outline: styles.outline,
             ghost: styles.ghost,
             link: styles.link,

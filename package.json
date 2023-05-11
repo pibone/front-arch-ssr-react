@@ -11,7 +11,7 @@
         "lint:all": "eslint .",
         "start": "npm run start:storybook",
         "start:dev": "next dev",
-        "start:storybook": "storybook dev -p 6006",
+        "start:storybook": "storybook dev -p 6006 --no-open",
         "prepare": "husky install"
     },
     "dependencies": {
@@ -29,6 +29,7 @@
     "devDependencies": {
         "@commitlint/cli": "^17.5.0",
         "@commitlint/config-conventional": "^17.4.4",
+        "@mertasan/tailwindcss-variables": "^2.6.1",
         "@pact-foundation/pact": "^11.0.2",
         "@pact-foundation/pact-node": "^10.17.7",
         "@storybook/addon-essentials": "^7.0.10",
@@ -69,6 +70,7 @@
         "prettier": "^2.8.7",
         "sass": "^1.62.1",
         "storybook": "^7.0.10",
+        "tailwindcss-animate": "^1.0.5",
         "typescript": "5.0.2",
         "typescript-plugin-css-modules": "^5.0.0"
     }
