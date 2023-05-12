@@ -13,6 +13,20 @@ export default meta
 type Story = StoryObj<typeof AspectRatio>
 
 export const Default: Story = {
+    render: (p) => (
+        <AspectRatio
+            {...p}
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'red',
+            }}
+            ratio={10}
+        >
+            <div style={{ height: 10, width: 10, backgroundColor: 'teal' }} />
+        </AspectRatio>
+    ),
     args: {},
     async play({ canvasElement }) {
         const canvas = within(canvasElement)
