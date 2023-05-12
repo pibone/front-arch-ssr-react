@@ -3,7 +3,7 @@ import styles from './button.module.css'
 import { Slot } from '@radix-ui/react-slot'
 import { VariantProps, cva } from 'class-variance-authority'
 
-const buttonVariants = cva(styles.container, {
+export const buttonVariants = cva(styles.container, {
     variants: {
         variant: {
             primary: styles.primary,

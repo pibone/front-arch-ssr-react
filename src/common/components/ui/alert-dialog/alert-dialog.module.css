@@ -1,0 +1,32 @@
+/* elements */
+.portal {
+    @apply fixed inset-0 z-50 flex items-end justify-center sm:items-center;
+}
+
+.overlay {
+    @apply fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-opacity animate-in fade-in;
+}
+
+.content {
+    @apply fixed z-50 grid w-full max-w-lg scale-100 gap-4 border bg-background p-6 opacity-100 shadow-lg animate-in fade-in-90 slide-in-from-bottom-10 sm:rounded-lg sm:zoom-in-90 sm:slide-in-from-bottom-0 md:w-full;
+}
+
+.header {
+    @apply flex flex-col space-y-2 text-center sm:text-left;
+}
+
+.footer {
+    @apply flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2;
+}
+
+.title {
+    @apply text-lg font-semibold;
+}
+
+.description {
+    @apply text-sm text-muted-fg;
+}
+
+.cancel {
+    @apply mt-2 sm:mt-0;
+}

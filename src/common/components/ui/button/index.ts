@@ -1,3 +1,3 @@
 'use client'
 
-export { Button } from './button.component'
+export { Button, buttonVariants } from './button.component'
