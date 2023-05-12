@@ -1,0 +1,11 @@
+.container {
+    @apply shrink-0 bg-border;
+}
+
+.horizontal {
+    @apply h-[1px] w-full;
+}
+
+.vertical {
+    @apply h-full w-[1px];
+}
