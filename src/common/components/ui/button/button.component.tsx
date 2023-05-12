@@ -2,8 +2,9 @@ import React from 'react'
 import styles from './button.module.css'
 import { Slot } from '@radix-ui/react-slot'
 import { VariantProps, cva } from 'class-variance-authority'
+import cn from 'classnames'
 
-export const buttonVariants = cva(styles.container, {
+const buttonVariants = cva(styles.container, {
     variants: {
         variant: {
             primary: styles.primary,
@@ -38,7 +39,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <Comp
                 data-testid="button"
-                className={buttonVariants({ variant, size, className })}
+                className={cn(buttonVariants({ variant, size }), className)}
                 ref={ref}
                 {...props}
             />
@@ -48,4 +49,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button'
 
-export { Button }
+export { Button, buttonVariants }
