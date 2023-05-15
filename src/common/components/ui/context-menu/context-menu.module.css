@@ -1,0 +1,9 @@
+.container {
+}
+
+.subtrigger {
+    @apply flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
+    &Inset {
+        @apply pl-8;
+    }
+}

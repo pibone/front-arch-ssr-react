@@ -37,7 +37,7 @@ module.exports = {
                 sm: 'calc(0.5rem - 4px)',
             },
             fontFamily: {
-                sans: ['var(--font-sans)', ...fontFamily.sans],
+                sans: ['var(--font-sans, Lexend)', ...fontFamily.sans],
             },
             variables: {
                 DEFAULT: {
