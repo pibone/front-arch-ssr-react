@@ -1,0 +1,11 @@
+.container {
+}
+
+.trigger {
+}
+
+.content {
+    @apply overflow-hidden;
+    @apply data-[state=open]:animate-collapsible-down;
+    @apply data-[state=closed]:animate-collapsible-up;
+}

@@ -1,5 +1,8 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
 
+const radixHeightCSSVars =
+    'var(--radix-accordion-content-height, var(--radix-collapsible-content-height))'
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -13,18 +16,20 @@ module.exports = {
         },
         extend: {
             keyframes: {
-                'accordion-down': {
+                'radix-slide-down': {
                     from: { height: 0 },
-                    to: { height: 'var(--radix-accordion-content-height)' },
+                    to: { height: radixHeightCSSVars },
                 },
-                'accordion-up': {
-                    from: { height: 'var(--radix-accordion-content-height)' },
+                'radix-slide-up': {
+                    from: { height: radixHeightCSSVars },
                     to: { height: 0 },
                 },
             },
             animation: {
-                'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out',
+                'accordion-down': 'radix-slide-down 0.2s ease-out',
+                'accordion-up': 'radix-slide-up 0.2s ease-out',
+                'collapsible-down': 'radix-slide-down 0.2s ease-out',
+                'collapsible-up': 'radix-slide-up 0.2s ease-out',
             },
             borderRadius: {
                 lg: `0.5rem`,
