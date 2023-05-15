@@ -1,0 +1,53 @@
+.container {
+}
+
+.subtrigger {
+    @apply flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent;
+}
+
+.icon {
+    @apply ml-auto h-4 w-4;
+}
+
+.inset {
+    @apply pl-8;
+}
+
+.subcontent {
+    @apply z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md animate-in data-[side=bottom]:slide-in-from-top-1 data-[side=left]:slide-in-from-right-1 data-[side=right]:slide-in-from-left-1 data-[side=top]:slide-in-from-bottom-1;
+}
+
+.content {
+    @apply z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
+}
+
+.item {
+    @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+
+.shortcut {
+    @apply ml-auto text-xs tracking-widest opacity-60;
+}
+
+.checkboxItem {
+    @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+
+.radioItem {
+    @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+.radioItemWrapper {
+    @apply absolute left-2 flex h-3.5 w-3.5 items-center justify-center;
+}
+
+.radioItemIcon {
+    @apply h-2 w-2 fill-current;
+}
+
+.label {
+    @apply px-2 py-1.5 text-sm font-semibold;
+}
+
+.separator {
+    @apply -mx-1 my-1 h-px bg-muted;
+}
