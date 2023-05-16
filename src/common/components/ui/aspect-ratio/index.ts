@@ -1,3 +1,3 @@
 'use client'
 
-export { AspectRatio } from './aspect-ratio.component'
+export * from './aspect-ratio.component'

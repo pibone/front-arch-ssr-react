@@ -26,9 +26,6 @@ export function Table<T extends object>(props: TableProps<T>) {
     )
 }
 
-Table.Headers = TableHeaders
-Table.Body = TableBody
-
 function TableHeaders<T extends object>({
     headerGroups,
 }: {

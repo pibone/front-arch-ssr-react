@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { HoverCard } from './hover-card.component'
+import * as HoverCard from './hover-card.component'
 import { CalendarDays } from 'lucide-react'
 import { Button } from '../button'
 import { Avatar } from '../avatar'
 
-const meta: Meta<typeof HoverCard> = {
+const meta: Meta<typeof HoverCard.Root> = {
     title: 'HoverCard',
-    component: HoverCard,
+    component: HoverCard.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof HoverCard>
+type Story = StoryObj<typeof HoverCard.Root>
 
 export const Default: Story = {
     render: (p) => (

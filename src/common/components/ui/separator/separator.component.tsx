@@ -3,7 +3,7 @@ import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import cn from 'classnames'
 import styles from './separator.module.css'
 
-const Separator = React.forwardRef<
+export const Separator = React.forwardRef<
     React.ElementRef<typeof SeparatorPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
 >(
@@ -28,5 +28,3 @@ const Separator = React.forwardRef<
     )
 )
 Separator.displayName = SeparatorPrimitive.Root.displayName
-
-export { Separator }

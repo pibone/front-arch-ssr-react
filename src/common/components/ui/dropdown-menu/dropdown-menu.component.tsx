@@ -4,19 +4,19 @@ import { ChevronRight } from 'lucide-react'
 import cn from 'classnames'
 import styles from './dropdown-menu.module.css'
 
-const DropdownMenuRoot = DropdownMenuPrimitive.Root
+export const Root = DropdownMenuPrimitive.Root
 
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
+export const Trigger = DropdownMenuPrimitive.Trigger
 
-const DropdownMenuGroup = DropdownMenuPrimitive.Group
+export const Group = DropdownMenuPrimitive.Group
 
-const DropdownMenuPortal = DropdownMenuPrimitive.Portal
+export const Portal = DropdownMenuPrimitive.Portal
 
-const DropdownMenuSub = DropdownMenuPrimitive.Sub
+export const Sub = DropdownMenuPrimitive.Sub
 
-const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
+export const RadioGroup = DropdownMenuPrimitive.RadioGroup
 
-const DropdownMenuSubTrigger = React.forwardRef<
+export const SubTrigger = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
         inset?: boolean
@@ -31,10 +31,9 @@ const DropdownMenuSubTrigger = React.forwardRef<
         <ChevronRight className={styles.icon} />
     </DropdownMenuPrimitive.SubTrigger>
 ))
-DropdownMenuSubTrigger.displayName =
-    DropdownMenuPrimitive.SubTrigger.displayName
+SubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName
 
-const DropdownMenuSubContent = React.forwardRef<
+export const SubContent = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
 >(({ className, ...props }, ref) => (
@@ -44,10 +43,9 @@ const DropdownMenuSubContent = React.forwardRef<
         {...props}
     />
 ))
-DropdownMenuSubContent.displayName =
-    DropdownMenuPrimitive.SubContent.displayName
+SubContent.displayName = DropdownMenuPrimitive.SubContent.displayName
 
-const DropdownMenuContent = React.forwardRef<
+export const Content = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
 >(({ className, sideOffset = 4, ...props }, ref) => (
@@ -60,9 +58,9 @@ const DropdownMenuContent = React.forwardRef<
         />
     </DropdownMenuPrimitive.Portal>
 ))
-DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
+Content.displayName = DropdownMenuPrimitive.Content.displayName
 
-const DropdownMenuItem = React.forwardRef<
+export const Item = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Item>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
         inset?: boolean
@@ -74,9 +72,9 @@ const DropdownMenuItem = React.forwardRef<
         {...props}
     />
 ))
-DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
+Item.displayName = DropdownMenuPrimitive.Item.displayName
 
-const DropdownMenuCheckboxItem = React.forwardRef<
+export const CheckboxItem = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
     React.ComponentPropsWithoutRef<
         typeof DropdownMenuPrimitive.CheckboxItem
@@ -98,10 +96,9 @@ const DropdownMenuCheckboxItem = React.forwardRef<
         {children}
     </DropdownMenuPrimitive.CheckboxItem>
 ))
-DropdownMenuCheckboxItem.displayName =
-    DropdownMenuPrimitive.CheckboxItem.displayName
+CheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName
 
-const DropdownMenuRadioItem = React.forwardRef<
+export const RadioItem = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem> & {
         Icon: Component<{ className: string }>
@@ -120,9 +117,9 @@ const DropdownMenuRadioItem = React.forwardRef<
         {children}
     </DropdownMenuPrimitive.RadioItem>
 ))
-DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
+RadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
 
-const DropdownMenuLabel = React.forwardRef<
+export const Label = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Label>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
         inset?: boolean
@@ -134,9 +131,9 @@ const DropdownMenuLabel = React.forwardRef<
         {...props}
     />
 ))
-DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
+Label.displayName = DropdownMenuPrimitive.Label.displayName
 
-const DropdownMenuSeparator = React.forwardRef<
+export const Separator = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
@@ -146,44 +143,12 @@ const DropdownMenuSeparator = React.forwardRef<
         {...props}
     />
 ))
-DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
+Separator.displayName = DropdownMenuPrimitive.Separator.displayName
 
-const DropdownMenuShortcut = ({
+export const Shortcut = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLSpanElement>) => {
     return <span className={cn(styles.shortcut, className)} {...props} />
 }
-DropdownMenuShortcut.displayName = 'DropdownMenuShortcut'
-
-export const DropdownMenu: typeof DropdownMenuRoot & {
-    Trigger: typeof DropdownMenuTrigger
-    Content: typeof DropdownMenuContent
-    Item: typeof DropdownMenuItem
-    CheckboxItem: typeof DropdownMenuCheckboxItem
-    RadioItem: typeof DropdownMenuRadioItem
-    Label: typeof DropdownMenuLabel
-    Separator: typeof DropdownMenuSeparator
-    Shortcut: typeof DropdownMenuShortcut
-    Group: typeof DropdownMenuGroup
-    Portal: typeof DropdownMenuPortal
-    Sub: typeof DropdownMenuSub
-    SubContent: typeof DropdownMenuSubContent
-    SubTrigger: typeof DropdownMenuSubTrigger
-    RadioGroup: typeof DropdownMenuRadioGroup
-} = DropdownMenuRoot
-
-DropdownMenu.Trigger = DropdownMenuTrigger
-DropdownMenu.Content = DropdownMenuContent
-DropdownMenu.Item = DropdownMenuItem
-DropdownMenu.CheckboxItem = DropdownMenuCheckboxItem
-DropdownMenu.RadioItem = DropdownMenuRadioItem
-DropdownMenu.Label = DropdownMenuLabel
-DropdownMenu.Separator = DropdownMenuSeparator
-DropdownMenu.Shortcut = DropdownMenuShortcut
-DropdownMenu.Group = DropdownMenuGroup
-DropdownMenu.Portal = DropdownMenuPortal
-DropdownMenu.Sub = DropdownMenuSub
-DropdownMenu.SubContent = DropdownMenuSubContent
-DropdownMenu.SubTrigger = DropdownMenuSubTrigger
-DropdownMenu.RadioGroup = DropdownMenuRadioGroup
+Shortcut.displayName = 'DropdownMenuShortcut'

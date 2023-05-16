@@ -4,17 +4,17 @@ import { Check, ChevronRight, Circle } from 'lucide-react'
 import cn from 'classnames'
 import styles from './menubar.module.css'
 
-const MenubarMenu = MenubarPrimitive.Menu
+export const Menu = MenubarPrimitive.Menu
 
-const MenubarGroup = MenubarPrimitive.Group
+export const Group = MenubarPrimitive.Group
 
-const MenubarPortal = MenubarPrimitive.Portal
+export const Portal = MenubarPrimitive.Portal
 
-const MenubarSub = MenubarPrimitive.Sub
+export const Sub = MenubarPrimitive.Sub
 
-const MenubarRadioGroup = MenubarPrimitive.RadioGroup
+export const RadioGroup = MenubarPrimitive.RadioGroup
 
-const MenubarRoot = React.forwardRef<
+export const Root = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Root>
 >(({ className, ...props }, ref) => (
@@ -25,9 +25,9 @@ const MenubarRoot = React.forwardRef<
         {...props}
     />
 ))
-MenubarRoot.displayName = MenubarPrimitive.Root.displayName
+Root.displayName = MenubarPrimitive.Root.displayName
 
-const MenubarTrigger = React.forwardRef<
+export const MenubarTrigger = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
@@ -39,7 +39,7 @@ const MenubarTrigger = React.forwardRef<
 ))
 MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName
 
-const MenubarSubTrigger = React.forwardRef<
+export const SubTrigger = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.SubTrigger>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & {
         inset?: boolean
@@ -54,9 +54,9 @@ const MenubarSubTrigger = React.forwardRef<
         <ChevronRight className={styles.icon} />
     </MenubarPrimitive.SubTrigger>
 ))
-MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName
+SubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName
 
-const MenubarSubContent = React.forwardRef<
+export const SubContent = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.SubContent>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubContent>
 >(({ className, ...props }, ref) => (
@@ -68,9 +68,9 @@ const MenubarSubContent = React.forwardRef<
         />
     </MenubarPrimitive.Portal>
 ))
-MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName
+SubContent.displayName = MenubarPrimitive.SubContent.displayName
 
-const MenubarContent = React.forwardRef<
+export const Content = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>
 >(
@@ -96,9 +96,9 @@ const MenubarContent = React.forwardRef<
         </MenubarPrimitive.Portal>
     )
 )
-MenubarContent.displayName = MenubarPrimitive.Content.displayName
+Content.displayName = MenubarPrimitive.Content.displayName
 
-const MenubarItem = React.forwardRef<
+export const Item = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Item>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
         inset?: boolean
@@ -110,9 +110,9 @@ const MenubarItem = React.forwardRef<
         {...props}
     />
 ))
-MenubarItem.displayName = MenubarPrimitive.Item.displayName
+Item.displayName = MenubarPrimitive.Item.displayName
 
-const MenubarCheckboxItem = React.forwardRef<
+export const CheckboxItem = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.CheckboxItem>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => (
@@ -130,9 +130,9 @@ const MenubarCheckboxItem = React.forwardRef<
         {children}
     </MenubarPrimitive.CheckboxItem>
 ))
-MenubarCheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName
+CheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName
 
-const MenubarRadioItem = React.forwardRef<
+export const RadioItem = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.RadioItem>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
@@ -149,9 +149,9 @@ const MenubarRadioItem = React.forwardRef<
         {children}
     </MenubarPrimitive.RadioItem>
 ))
-MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName
+RadioItem.displayName = MenubarPrimitive.RadioItem.displayName
 
-const MenubarLabel = React.forwardRef<
+export const Label = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Label>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Label> & {
         inset?: boolean
@@ -163,9 +163,9 @@ const MenubarLabel = React.forwardRef<
         {...props}
     />
 ))
-MenubarLabel.displayName = MenubarPrimitive.Label.displayName
+Label.displayName = MenubarPrimitive.Label.displayName
 
-const MenubarSeparator = React.forwardRef<
+export const Separator = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Separator>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Separator>
 >(({ className, ...props }, ref) => (
@@ -175,46 +175,12 @@ const MenubarSeparator = React.forwardRef<
         {...props}
     />
 ))
-MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName
+Separator.displayName = MenubarPrimitive.Separator.displayName
 
-const MenubarShortcut = ({
+export const Shortcut = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLSpanElement>) => {
     return <span className={cn(styles.shortcut, className)} {...props} />
 }
-MenubarShortcut.displayname = 'MenubarShortcut'
-
-export const Menubar: typeof MenubarRoot & {
-    Menu: typeof MenubarMenu
-    Trigger: typeof MenubarTrigger
-    Content: typeof MenubarContent
-    Item: typeof MenubarItem
-    Separator: typeof MenubarSeparator
-    Label: typeof MenubarLabel
-    CheckboxItem: typeof MenubarCheckboxItem
-    RadioGroup: typeof MenubarRadioGroup
-    RadioItem: typeof MenubarRadioItem
-    Portal: typeof MenubarPortal
-    SubContent: typeof MenubarSubContent
-    SubTrigger: typeof MenubarSubTrigger
-    Group: typeof MenubarGroup
-    Sub: typeof MenubarSub
-    Shortcut: typeof MenubarShortcut
-} = MenubarRoot
-
-Menubar.Menu = MenubarMenu
-Menubar.Trigger = MenubarTrigger
-Menubar.Content = MenubarContent
-Menubar.Item = MenubarItem
-Menubar.Separator = MenubarSeparator
-Menubar.Label = MenubarLabel
-Menubar.CheckboxItem = MenubarCheckboxItem
-Menubar.RadioGroup = MenubarRadioGroup
-Menubar.RadioItem = MenubarRadioItem
-Menubar.Portal = MenubarPortal
-Menubar.SubContent = MenubarSubContent
-Menubar.SubTrigger = MenubarSubTrigger
-Menubar.Group = MenubarGroup
-Menubar.Sub = MenubarSub
-Menubar.Shortcut = MenubarShortcut
+Shortcut.displayname = 'MenubarShortcut'

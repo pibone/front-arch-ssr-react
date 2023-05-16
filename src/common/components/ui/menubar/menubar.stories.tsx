@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { Menubar } from './menubar.component'
+import * as Menubar from './menubar.component'
 
-const meta: Meta<typeof Menubar> = {
+const meta: Meta<typeof Menubar.Root> = {
     title: 'Menubar',
-    component: Menubar,
+    component: Menubar.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof Menubar>
+type Story = StoryObj<typeof Menubar.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <Menubar {...p}>
+        <Menubar.Root {...p}>
             <Menubar.Menu>
                 <Menubar.Trigger>File</Menubar.Trigger>
                 <Menubar.Content>
@@ -28,7 +28,7 @@ export const Default: Story = {
                     <Menubar.Item>Print</Menubar.Item>
                 </Menubar.Content>
             </Menubar.Menu>
-        </Menubar>
+        </Menubar.Root>
     ),
     args: {},
     async play({ canvasElement }) {
@@ -41,7 +41,7 @@ export const Default: Story = {
 
 export const Complex: Story = {
     render: (p) => (
-        <Menubar {...p}>
+        <Menubar.Root {...p}>
             <Menubar.Menu>
                 <Menubar.Trigger>File</Menubar.Trigger>
                 <Menubar.Content>
@@ -131,7 +131,7 @@ export const Complex: Story = {
                     <Menubar.Item inset>Add Profile...</Menubar.Item>
                 </Menubar.Content>
             </Menubar.Menu>
-        </Menubar>
+        </Menubar.Root>
     ),
     args: {},
     async play({ canvasElement }) {

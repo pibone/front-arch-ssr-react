@@ -4,7 +4,7 @@ import styles from './dialog.module.css'
 import { X } from 'lucide-react'
 import cn from 'classnames'
 
-const DialogRoot = React.forwardRef<
+export const Root = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
 >(({ children, ...props }, ref) => (
@@ -12,9 +12,9 @@ const DialogRoot = React.forwardRef<
         {children}
     </DialogPrimitive.Root>
 ))
-DialogRoot.displayName = 'DialogRoot'
+Root.displayName = 'DialogRoot'
 
-const DialogTrigger = React.forwardRef<
+export const Trigger = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger>
 >(({ children, ...props }, ref) => (
@@ -22,9 +22,9 @@ const DialogTrigger = React.forwardRef<
         {children}
     </DialogPrimitive.Trigger>
 ))
-DialogTrigger.displayName = 'DialogTrigger'
+Trigger.displayName = 'DialogTrigger'
 
-const DialogPortal = ({
+const Portal = ({
     className,
     children,
     ...props
@@ -33,9 +33,9 @@ const DialogPortal = ({
         <div className={styles.portal}>{children}</div>
     </DialogPrimitive.Portal>
 )
-DialogPortal.displayName = DialogPrimitive.Portal.displayName
+Portal.displayName = DialogPrimitive.Portal.displayName
 
-const DialogOverlay = React.forwardRef<
+const Overlay = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Overlay>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
@@ -45,14 +45,14 @@ const DialogOverlay = React.forwardRef<
         {...props}
     />
 ))
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+Overlay.displayName = DialogPrimitive.Overlay.displayName
 
-const DialogContent = React.forwardRef<
+export const Modal = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
-    <DialogPortal>
-        <DialogOverlay />
+    <Portal>
+        <Overlay />
         <DialogPrimitive.Content
             ref={ref}
             className={cn(styles.content, className)}
@@ -64,27 +64,27 @@ const DialogContent = React.forwardRef<
                 <span className={styles.text}>Close</span>
             </DialogPrimitive.Close>
         </DialogPrimitive.Content>
-    </DialogPortal>
+    </Portal>
 ))
-DialogContent.displayName = DialogPrimitive.Content.displayName
+Modal.displayName = DialogPrimitive.Content.displayName
 
-const DialogHeader = ({
+export const Header = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
     <div className={cn(styles.header, className)} {...props} />
 )
-DialogHeader.displayName = 'DialogHeader'
+Header.displayName = 'DialogHeader'
 
-const DialogFooter = ({
+export const Footer = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
     <div className={cn(styles.footer, className)} {...props} />
 )
-DialogFooter.displayName = 'DialogFooter'
+Footer.displayName = 'DialogFooter'
 
-const DialogTitle = React.forwardRef<
+export const Title = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Title>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
@@ -94,9 +94,9 @@ const DialogTitle = React.forwardRef<
         {...props}
     />
 ))
-DialogTitle.displayName = DialogPrimitive.Title.displayName
+Title.displayName = DialogPrimitive.Title.displayName
 
-const DialogDescription = React.forwardRef<
+export const Description = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Description>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
@@ -106,20 +106,4 @@ const DialogDescription = React.forwardRef<
         {...props}
     />
 ))
-DialogDescription.displayName = DialogPrimitive.Description.displayName
-
-export const Dialog: typeof DialogRoot & {
-    Content: typeof DialogContent
-    Description: typeof DialogDescription
-    Footer: typeof DialogFooter
-    Trigger: typeof DialogTrigger
-    Header: typeof DialogHeader
-    Title: typeof DialogTitle
-} = DialogRoot
-
-Dialog.Content = DialogContent
-Dialog.Description = DialogDescription
-Dialog.Footer = DialogFooter
-Dialog.Trigger = DialogTrigger
-Dialog.Header = DialogHeader
-Dialog.Title = DialogTitle
+Description.displayName = DialogPrimitive.Description.displayName

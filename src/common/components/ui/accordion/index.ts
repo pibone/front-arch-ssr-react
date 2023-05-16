@@ -1,3 +1,3 @@
 'use client'
 
-export { Accordion } from './accordion.component'
+export * from './accordion.component'

@@ -3,7 +3,7 @@ import * as PopoverPrimitive from '@radix-ui/react-popover'
 import cn from 'classnames'
 import styles from './popover.module.css'
 
-const PopoverRoot = React.forwardRef<
+export const Root = React.forwardRef<
     typeof PopoverPrimitive.Root,
     ComponentPropsWithoutRef<typeof PopoverPrimitive.Root>
 >(({ children, ...props }, ref) => (
@@ -11,9 +11,9 @@ const PopoverRoot = React.forwardRef<
         {children}
     </PopoverPrimitive.Root>
 ))
-PopoverRoot.displayName = 'PopoverRoot'
+Root.displayName = 'PopoverRoot'
 
-const PopoverTrigger = React.forwardRef<
+export const Trigger = React.forwardRef<
     typeof PopoverPrimitive.Trigger,
     ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
@@ -24,9 +24,9 @@ const PopoverTrigger = React.forwardRef<
         {...props}
     />
 ))
-PopoverTrigger.displayName = 'PopoverTrigger'
+Trigger.displayName = 'PopoverTrigger'
 
-const PopoverContent = React.forwardRef<
+export const Content = React.forwardRef<
     React.ElementRef<typeof PopoverPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (
@@ -40,12 +40,4 @@ const PopoverContent = React.forwardRef<
         />
     </PopoverPrimitive.Portal>
 ))
-PopoverContent.displayName = 'PopoverContent'
-
-export const Popover: typeof PopoverRoot & {
-    Trigger: typeof PopoverTrigger
-    Content: typeof PopoverContent
-} = PopoverRoot
-
-Popover.Trigger = PopoverTrigger
-Popover.Content = PopoverContent
+Content.displayName = 'PopoverContent'

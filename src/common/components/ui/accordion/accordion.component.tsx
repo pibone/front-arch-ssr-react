@@ -4,7 +4,7 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { ChevronDown } from 'lucide-react'
 import styles from './accordion.module.css'
 
-const AccordionRoot = React.forwardRef<
+export const Root = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
 >(({ className, children, ...props }, ref) => (
@@ -17,9 +17,9 @@ const AccordionRoot = React.forwardRef<
         {children}
     </AccordionPrimitive.Root>
 ))
-AccordionRoot.displayName = 'AccordionRoot'
+Root.displayName = 'AccordionRoot'
 
-const AccordionItem = React.forwardRef<
+export const Item = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Item>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
@@ -30,9 +30,9 @@ const AccordionItem = React.forwardRef<
     />
 ))
 
-AccordionItem.displayName = 'AccordionItem'
+Item.displayName = 'AccordionItem'
 
-const AccordionTrigger = React.forwardRef<
+export const Trigger = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
@@ -48,9 +48,9 @@ const AccordionTrigger = React.forwardRef<
     </AccordionPrimitive.Header>
 ))
 
-AccordionTrigger.displayName = 'AccordionTrigger'
+Trigger.displayName = 'AccordionTrigger'
 
-const AccordionContent = React.forwardRef<
+export const Content = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
@@ -63,14 +63,14 @@ const AccordionContent = React.forwardRef<
     </AccordionPrimitive.Content>
 ))
 
-AccordionContent.displayName = 'AccordionContent'
+Content.displayName = 'AccordionContent'
 
-export const Accordion: typeof AccordionRoot & {
-    Item: typeof AccordionItem
-    Trigger: typeof AccordionTrigger
-    Content: typeof AccordionContent
-} = AccordionRoot
+// export const Accordion: typeof AccordionRoot & {
+//     Item: typeof AccordionItem
+//     Trigger: typeof AccordionTrigger
+//     Content: typeof AccordionContent
+// } = AccordionRoot
 
-Accordion.Item = AccordionItem
-Accordion.Trigger = AccordionTrigger
-Accordion.Content = AccordionContent
+// Accordion.Item = AccordionItem
+// Accordion.Trigger = AccordionTrigger
+// Accordion.Content = AccordionContent

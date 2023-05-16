@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { AlertDialog } from './alert-dialog.component'
+import * as AlertDialog from './alert-dialog.component'
 import { Button } from '../button'
 
-const meta: Meta<typeof AlertDialogRoot> = {
+const meta: Meta<typeof AlertDialog.Root> = {
     title: 'AlertDialog',
-    component: AlertDialog,
+    component: AlertDialog.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof AlertDialog>
+type Story = StoryObj<typeof AlertDialog.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <AlertDialog {...p}>
+        <AlertDialog.Root {...p}>
             <AlertDialog.Trigger asChild>
                 <Button variant="outline">Show Dialog</Button>
             </AlertDialog.Trigger>
@@ -31,7 +31,7 @@ export const Default: Story = {
                     <AlertDialog.Action>Continue</AlertDialog.Action>
                 </AlertDialog.Footer>
             </AlertDialog.Content>
-        </AlertDialog>
+        </AlertDialog.Root>
     ),
     args: {},
     async play({ canvasElement }) {

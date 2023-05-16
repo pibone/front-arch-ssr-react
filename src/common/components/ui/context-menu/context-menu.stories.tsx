@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { ContextMenu } from './context-menu.component'
+import * as ContextMenu from './context-menu.component'
 
-const meta: Meta<typeof ContextMenu> = {
+const meta: Meta<typeof ContextMenu.Root> = {
     title: 'ContextMenu',
-    component: ContextMenu,
+    component: ContextMenu.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof ContextMenu>
+type Story = StoryObj<typeof ContextMenu.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <ContextMenu {...p}>
+        <ContextMenu.Root {...p}>
             <ContextMenu.Trigger>Right click</ContextMenu.Trigger>
             <ContextMenu.Content>
                 <ContextMenu.Item>Profile</ContextMenu.Item>
@@ -22,7 +22,7 @@ export const Default: Story = {
                 <ContextMenu.Item>Team</ContextMenu.Item>
                 <ContextMenu.Item>Subscription</ContextMenu.Item>
             </ContextMenu.Content>
-        </ContextMenu>
+        </ContextMenu.Root>
     ),
     args: {},
     async play({ canvasElement }) {
@@ -35,7 +35,7 @@ export const Default: Story = {
 
 export const Complex: Story = {
     render: (p) => (
-        <ContextMenu {...p}>
+        <ContextMenu.Root {...p}>
             <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
                 Right click here
             </ContextMenu.Trigger>
@@ -84,7 +84,7 @@ export const Complex: Story = {
                     </ContextMenu.RadioItem>
                 </ContextMenu.RadioGroup>
             </ContextMenu.Content>
-        </ContextMenu>
+        </ContextMenu.Root>
     ),
     args: {},
     async play({ canvasElement }) {

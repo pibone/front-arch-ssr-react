@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { NavigationMenu } from './navigation-menu.component'
+import * as NavigationMenu from './navigation-menu.component'
 
-const meta: Meta<typeof NavigationMenu> = {
+const meta: Meta<typeof NavigationMenu.Root> = {
     title: 'NavigationMenu',
-    component: NavigationMenu,
+    component: NavigationMenu.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof NavigationMenu>
+type Story = StoryObj<typeof NavigationMenu.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <NavigationMenu {...p}>
+        <NavigationMenu.Root {...p}>
             <NavigationMenu.List>
                 <NavigationMenu.Item>
                     <NavigationMenu.Trigger>Item One</NavigationMenu.Trigger>
@@ -23,7 +23,7 @@ export const Default: Story = {
                     </NavigationMenu.Content>
                 </NavigationMenu.Item>
             </NavigationMenu.List>
-        </NavigationMenu>
+        </NavigationMenu.Root>
     ),
     args: {},
     async play({ canvasElement }) {

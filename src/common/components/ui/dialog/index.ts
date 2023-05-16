@@ -1,3 +1,3 @@
 'use client'
 
-export { Dialog } from './dialog.component'
+export * from './dialog.component'

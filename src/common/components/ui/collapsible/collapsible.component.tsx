@@ -3,7 +3,7 @@ import * as CollapsiblePrimitive from '@radix-ui/react-collapsible'
 import cn from 'classnames'
 import styles from './collapsible.module.css'
 
-const CollapsibleRoot = React.forwardRef<
+export const Root = React.forwardRef<
     HTMLDivElement,
     ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Root>
 >(({ className, children, ...props }, ref) => (
@@ -16,9 +16,9 @@ const CollapsibleRoot = React.forwardRef<
         {children}
     </CollapsiblePrimitive.Root>
 ))
-CollapsibleRoot.displayName = 'CollapsibleRoot'
+Root.displayName = 'CollapsibleRoot'
 
-const CollapsibleTrigger = React.forwardRef<
+export const Trigger = React.forwardRef<
     HTMLButtonElement,
     ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
@@ -30,9 +30,9 @@ const CollapsibleTrigger = React.forwardRef<
         {children}
     </CollapsiblePrimitive.Trigger>
 ))
-CollapsibleTrigger.displayName = 'CollapsibleTrigger'
+Trigger.displayName = 'CollapsibleTrigger'
 
-const CollapsibleContent = React.forwardRef<
+export const Content = React.forwardRef<
     HTMLDivElement,
     ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>
 >(({ className, children, ...props }, ref) => (
@@ -44,12 +44,4 @@ const CollapsibleContent = React.forwardRef<
         {children}
     </CollapsiblePrimitive.Content>
 ))
-CollapsibleContent.displayName = 'CollapsibleContent'
-
-export const Collapsible: typeof CollapsibleRoot & {
-    Trigger: typeof CollapsibleTrigger
-    Content: typeof CollapsibleContent
-} = CollapsibleRoot
-
-Collapsible.Trigger = CollapsibleTrigger
-Collapsible.Content = CollapsibleContent
+Content.displayName = 'CollapsibleContent'

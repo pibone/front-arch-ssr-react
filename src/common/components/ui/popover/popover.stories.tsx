@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { Popover } from './popover.component'
+import * as Popover from './popover.component'
 import { Button } from '../button'
 import { Badge } from '../badge'
 
-const meta: Meta<typeof Popover> = {
+const meta: Meta<typeof Popover.Root> = {
     title: 'Popover',
-    component: Popover,
+    component: Popover.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof Popover>
+type Story = StoryObj<typeof Popover.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <Popover {...p}>
+        <Popover.Root {...p}>
             <Popover.Trigger>
                 <Button>Abrir</Button>
             </Popover.Trigger>
@@ -26,7 +26,7 @@ export const Default: Story = {
                     Este es el contenido
                 </div>
             </Popover.Content>
-        </Popover>
+        </Popover.Root>
     ),
     args: {},
     async play({ canvasElement }) {

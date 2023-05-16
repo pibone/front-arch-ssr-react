@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import cn from 'classnames'
 import styles from './navigation-menu.module.css'
 
-const NavigationMenuRoot = React.forwardRef<
+export const Root = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
 >(({ className, children, ...props }, ref) => (
@@ -15,12 +15,12 @@ const NavigationMenuRoot = React.forwardRef<
         {...props}
     >
         {children}
-        <NavigationMenuViewport />
+        <Viewport />
     </NavigationMenuPrimitive.Root>
 ))
-NavigationMenuRoot.displayName = NavigationMenuPrimitive.Root.displayName
+Root.displayName = NavigationMenuPrimitive.Root.displayName
 
-const NavigationMenuList = React.forwardRef<
+export const List = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.List>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>
 >(({ className, ...props }, ref) => (
@@ -30,11 +30,11 @@ const NavigationMenuList = React.forwardRef<
         {...props}
     />
 ))
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
+List.displayName = NavigationMenuPrimitive.List.displayName
 
-const NavigationMenuItem = NavigationMenuPrimitive.Item
+export const Item = NavigationMenuPrimitive.Item
 
-const NavigationMenuTrigger = React.forwardRef<
+export const Trigger = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
@@ -46,9 +46,9 @@ const NavigationMenuTrigger = React.forwardRef<
         {children} <ChevronDown className={styles.icon} aria-hidden="true" />
     </NavigationMenuPrimitive.Trigger>
 ))
-NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
+Trigger.displayName = NavigationMenuPrimitive.Trigger.displayName
 
-const NavigationMenuContent = React.forwardRef<
+export const Content = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
 >(({ className, ...props }, ref) => (
@@ -58,11 +58,11 @@ const NavigationMenuContent = React.forwardRef<
         {...props}
     />
 ))
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName
+Content.displayName = NavigationMenuPrimitive.Content.displayName
 
-const NavigationMenuLink = NavigationMenuPrimitive.Link
+export const NavigationMenuLink = NavigationMenuPrimitive.Link
 
-const NavigationMenuViewport = React.forwardRef<
+export const Viewport = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
@@ -74,10 +74,9 @@ const NavigationMenuViewport = React.forwardRef<
         />
     </div>
 ))
-NavigationMenuViewport.displayName =
-    NavigationMenuPrimitive.Viewport.displayName
+Viewport.displayName = NavigationMenuPrimitive.Viewport.displayName
 
-const NavigationMenuIndicator = React.forwardRef<
+export const Indicator = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>
 >(({ className, ...props }, ref) => (
@@ -89,21 +88,4 @@ const NavigationMenuIndicator = React.forwardRef<
         <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
     </NavigationMenuPrimitive.Indicator>
 ))
-NavigationMenuIndicator.displayName =
-    NavigationMenuPrimitive.Indicator.displayName
-
-export const NavigationMenu: typeof NavigationMenuRoot & {
-    List: typeof NavigationMenuList
-    Item: typeof NavigationMenuItem
-    Content: typeof NavigationMenuContent
-    Trigger: typeof NavigationMenuTrigger
-    Link: typeof NavigationMenuLink
-    Indicator: typeof NavigationMenuIndicator
-} = NavigationMenuRoot
-
-NavigationMenu.List = NavigationMenuList
-NavigationMenu.Item = NavigationMenuItem
-NavigationMenu.Content = NavigationMenuContent
-NavigationMenu.Trigger = NavigationMenuTrigger
-NavigationMenu.Link = NavigationMenuLink
-NavigationMenu.Indicator = NavigationMenuIndicator
+Indicator.displayName = NavigationMenuPrimitive.Indicator.displayName

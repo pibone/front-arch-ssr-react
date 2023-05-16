@@ -1,3 +1,3 @@
 'use client'
 
-export { Alert } from './alert.component'
+export * from './alert.component'

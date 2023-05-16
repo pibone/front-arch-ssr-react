@@ -1,25 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { Dialog } from './dialog.component'
+import * as Dialog from './dialog.component'
 import { Button } from '../button'
 
-const meta: Meta<typeof Dialog> = {
+const meta: Meta<typeof Dialog.Root> = {
     title: 'Dialog',
-    component: Dialog,
+    component: Dialog.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof Dialog>
+type Story = StoryObj<typeof Dialog.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <Dialog {...p}>
+        <Dialog.Root {...p}>
             <Dialog.Trigger asChild>
                 <Button>Open</Button>
             </Dialog.Trigger>
-            <Dialog.Content>
+            <Dialog.Modal>
                 <Dialog.Header>
                     <Dialog.Title>
                         This is a sample text to confirm
@@ -30,8 +30,8 @@ export const Default: Story = {
                         servers.
                     </Dialog.Description>
                 </Dialog.Header>
-            </Dialog.Content>
-        </Dialog>
+            </Dialog.Modal>
+        </Dialog.Root>
     ),
     args: {},
     async play({ canvasElement }) {

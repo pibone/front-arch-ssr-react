@@ -3,7 +3,7 @@ import { VariantProps, cva } from 'class-variance-authority'
 import cn from 'classnames'
 import styles from './alert.module.css'
 
-const alertVariants = cva(styles.container, {
+export const alertVariants = cva(styles.container, {
     variants: {
         variant: {
             default: styles.defaultVariant,
@@ -15,7 +15,7 @@ const alertVariants = cva(styles.container, {
     },
 })
 
-const AlertRoot = React.forwardRef<
+export const Root = React.forwardRef<
     HTMLDivElement,
     React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
 >(({ className, variant, ...props }, ref) => (
@@ -27,28 +27,20 @@ const AlertRoot = React.forwardRef<
         {...props}
     />
 ))
-AlertRoot.displayName = 'AlertRoot'
+Root.displayName = 'AlertRoot'
 
-const AlertTitle = React.forwardRef<
+export const Title = React.forwardRef<
     HTMLParagraphElement,
     React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
     <h5 ref={ref} className={cn(styles.title, className)} {...props} />
 ))
-AlertTitle.displayName = 'AlertTitle'
+Title.displayName = 'AlertTitle'
 
-const AlertDescription = React.forwardRef<
+export const Description = React.forwardRef<
     HTMLParagraphElement,
     React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
     <div ref={ref} className={cn(styles.description, className)} {...props} />
 ))
-AlertDescription.displayName = 'AlertDescription'
-
-export const Alert: typeof AlertRoot & {
-    Description: typeof AlertDescription
-    Title: typeof AlertTitle
-} = AlertRoot
-
-Alert.Description = AlertDescription
-Alert.Title = AlertTitle
+Description.displayName = 'AlertDescription'

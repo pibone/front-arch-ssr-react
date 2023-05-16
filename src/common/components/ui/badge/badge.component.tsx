@@ -4,7 +4,7 @@ import { VariantProps, cva } from 'class-variance-authority'
 import styles from './badge.module.css'
 import { Slot } from '@radix-ui/react-slot'
 
-const badgeVariants = cva(styles.container, {
+export const badgeVariants = cva(styles.container, {
     variants: {
         variant: {
             primary: styles.primary,
@@ -22,7 +22,7 @@ export interface BadgeProps
     extends React.HTMLAttributes<HTMLDivElement>,
         VariantProps<typeof badgeVariants> {}
 
-const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
+export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
     ({ className, variant, asChild = false, ...props }, ref) => {
         const Comp = asChild ? Slot : 'div'
         return (
@@ -37,5 +37,3 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
 )
 
 Badge.displayName = 'Badge'
-
-export { Badge, badgeVariants }

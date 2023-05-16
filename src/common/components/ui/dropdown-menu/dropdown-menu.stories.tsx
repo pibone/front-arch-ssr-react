@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { DropdownMenu } from './dropdown-menu.component'
+import * as DropdownMenu from './dropdown-menu.component'
 import { Button } from '../button'
 import {
     Cloud,
@@ -20,18 +20,18 @@ import {
     Users,
 } from 'lucide-react'
 
-const meta: Meta<typeof DropdownMenu> = {
+const meta: Meta<typeof DropdownMenu.Root> = {
     title: 'DropdownMenu',
-    component: DropdownMenu,
+    component: DropdownMenu.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof DropdownMenu>
+type Story = StoryObj<typeof DropdownMenu.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <DropdownMenu {...p}>
+        <DropdownMenu.Root {...p}>
             <DropdownMenu.Trigger>Open</DropdownMenu.Trigger>
             <DropdownMenu.Content>
                 <DropdownMenu.Label>My Account</DropdownMenu.Label>
@@ -41,7 +41,7 @@ export const Default: Story = {
                 <DropdownMenu.Item>Team</DropdownMenu.Item>
                 <DropdownMenu.Item>Subscription</DropdownMenu.Item>
             </DropdownMenu.Content>
-        </DropdownMenu>
+        </DropdownMenu.Root>
     ),
 
     args: {},
@@ -55,7 +55,7 @@ export const Default: Story = {
 
 export const Complex: Story = {
     render: (p) => (
-        <DropdownMenu {...p}>
+        <DropdownMenu.Root {...p}>
             <DropdownMenu.Trigger asChild>
                 <Button variant="outline">Open</Button>
             </DropdownMenu.Trigger>
@@ -139,7 +139,7 @@ export const Complex: Story = {
                     <DropdownMenu.Shortcut>⇧⌘Q</DropdownMenu.Shortcut>
                 </DropdownMenu.Item>
             </DropdownMenu.Content>
-        </DropdownMenu>
+        </DropdownMenu.Root>
     ),
     args: {},
     async play({ canvasElement }) {

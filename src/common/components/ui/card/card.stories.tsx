@@ -1,23 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { Card } from './card.component'
+import * as Card from './card.component'
 import { Button } from '../button'
 import { BellRing, Check } from 'lucide-react'
 import { Switch } from '../switch'
 
-const meta: Meta<typeof Card> = {
+const meta: Meta<typeof Card.Root> = {
     title: 'Card',
-    component: Card,
+    component: Card.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof Card>
+type Story = StoryObj<typeof Card.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <Card {...p}>
+        <Card.Root {...p}>
             <Card.Header>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Description>Card Description</Card.Description>
@@ -28,7 +28,7 @@ export const Default: Story = {
             <Card.Footer>
                 <p>Card Footer</p>
             </Card.Footer>
-        </Card>
+        </Card.Root>
     ),
     args: {},
     async play({ canvasElement }) {
@@ -56,7 +56,7 @@ export const Complex: Story = {
             },
         ]
         return (
-            <Card className="w-[380px]" {...p}>
+            <Card.Root className="w-[380px]" {...p}>
                 <Card.Header>
                     <Card.Title>Notifications</Card.Title>
                     <Card.Description>
@@ -100,7 +100,7 @@ export const Complex: Story = {
                         <Check className="mr-2 h-4 w-4" /> Mark all as read
                     </Button>
                 </Card.Footer>
-            </Card>
+            </Card.Root>
         )
     },
     args: {},

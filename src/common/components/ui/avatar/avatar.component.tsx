@@ -3,7 +3,7 @@ import cn from 'classnames'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
 import styles from './avatar.module.css'
 
-const AvatarRoot = React.forwardRef<
+export const Root = React.forwardRef<
     React.ElementRef<typeof AvatarPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 >(({ className, ...props }, ref) => (
@@ -14,9 +14,9 @@ const AvatarRoot = React.forwardRef<
         {...props}
     />
 ))
-AvatarRoot.displayName = AvatarPrimitive.Root.displayName
+Root.displayName = AvatarPrimitive.Root.displayName
 
-const AvatarImage = React.forwardRef<
+export const Image = React.forwardRef<
     React.ElementRef<typeof AvatarPrimitive.Image>,
     React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
 >(({ className, ...props }, ref) => (
@@ -26,9 +26,9 @@ const AvatarImage = React.forwardRef<
         {...props}
     />
 ))
-AvatarImage.displayName = AvatarPrimitive.Image.displayName
+Image.displayName = AvatarPrimitive.Image.displayName
 
-const AvatarFallback = React.forwardRef<
+export const Fallback = React.forwardRef<
     React.ElementRef<typeof AvatarPrimitive.Fallback>,
     React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
 >(({ className, ...props }, ref) => (
@@ -38,12 +38,4 @@ const AvatarFallback = React.forwardRef<
         {...props}
     />
 ))
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
-
-export const Avatar: typeof AvatarRoot & {
-    Image: typeof AvatarImage
-    Fallback: typeof AvatarFallback
-} = AvatarRoot
-
-Avatar.Image = AvatarImage
-Avatar.Fallback = AvatarFallback
+Fallback.displayName = AvatarPrimitive.Fallback.displayName

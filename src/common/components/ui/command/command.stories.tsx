@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { Command } from './command.component'
+import * as Command from './command.component'
 import { Search } from 'lucide-react'
 
-const meta: Meta<typeof Command> = {
+const meta: Meta<typeof Command.Root> = {
     title: 'Command',
-    component: Command,
+    component: Command.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof Command>
+type Story = StoryObj<typeof Command.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <Command {...p}>
+        <Command.Root {...p}>
             <Command.Input
                 IconComponent={Search}
                 placeholder="Busca una opción"
@@ -30,7 +30,7 @@ export const Default: Story = {
                     </Command.Item>
                 </Command.Group>
             </Command.List>
-        </Command>
+        </Command.Root>
     ),
 
     args: {},

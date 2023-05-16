@@ -1,26 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
-import { Collapsible } from './collapsible.component'
+import * as Collapsible from './collapsible.component'
 import { Button } from '../button'
 
-const meta: Meta<typeof Collapsible> = {
+const meta: Meta<typeof Collapsible.Root> = {
     title: 'Collapsible',
-    component: Collapsible,
+    component: Collapsible.Root,
     argTypes: {},
 }
 
 export default meta
-type Story = StoryObj<typeof Collapsible>
+type Story = StoryObj<typeof Collapsible.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <Collapsible {...p}>
+        <Collapsible.Root {...p}>
             <Collapsible.Trigger>
                 <Button>Abrir</Button>
             </Collapsible.Trigger>
             <Collapsible.Content>Contenido</Collapsible.Content>
-        </Collapsible>
+        </Collapsible.Root>
     ),
     args: {},
     async play({ canvasElement }) {
