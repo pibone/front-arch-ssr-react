@@ -16,6 +16,7 @@ export const Root = React.forwardRef<
         {children}
     </CollapsiblePrimitive.Root>
 ))
+export const CollapsibleRoot = Root
 Root.displayName = 'CollapsibleRoot'
 
 export const Trigger = React.forwardRef<
@@ -30,6 +31,7 @@ export const Trigger = React.forwardRef<
         {children}
     </CollapsiblePrimitive.Trigger>
 ))
+export const CollapsibleTrigger = Trigger
 Trigger.displayName = 'CollapsibleTrigger'
 
 export const Content = React.forwardRef<
@@ -44,4 +46,5 @@ export const Content = React.forwardRef<
         {children}
     </CollapsiblePrimitive.Content>
 ))
+export const CollapsibleContent = Content
 Content.displayName = 'CollapsibleContent'

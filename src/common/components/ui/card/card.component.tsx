@@ -13,6 +13,7 @@ export const Root = React.forwardRef<
         {...props}
     />
 ))
+export const CardRoot = Root
 Root.displayName = 'CardRoot'
 
 export const Header = React.forwardRef<
@@ -21,6 +22,7 @@ export const Header = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div ref={ref} className={cn(styles.header, className)} {...props} />
 ))
+export const CardHeader = Header
 Header.displayName = 'CardHeader'
 
 export const Title = React.forwardRef<
@@ -29,6 +31,7 @@ export const Title = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <h3 ref={ref} className={cn(styles.title, className)} {...props} />
 ))
+export const CardTitle = Title
 Title.displayName = 'CardTitle'
 
 export const Description = React.forwardRef<
@@ -37,6 +40,7 @@ export const Description = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <p ref={ref} className={cn(styles.description, className)} {...props} />
 ))
+export const CardDescription = Description
 Description.displayName = 'CardDescription'
 
 export const Content = React.forwardRef<
@@ -45,6 +49,7 @@ export const Content = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div ref={ref} className={cn(styles.content, className)} {...props} />
 ))
+export const CardContent = Content
 Content.displayName = 'CardContent'
 
 export const Footer = React.forwardRef<
@@ -53,4 +58,5 @@ export const Footer = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div ref={ref} className={cn(styles.footer, className)} {...props} />
 ))
+export const CardFooter = Footer
 Footer.displayName = 'CardFooter'

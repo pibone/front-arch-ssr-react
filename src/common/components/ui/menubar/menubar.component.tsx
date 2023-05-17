@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLProps } from 'react'
 import * as MenubarPrimitive from '@radix-ui/react-menubar'
 import { Check, ChevronRight, Circle } from 'lucide-react'
 import cn from 'classnames'
@@ -192,11 +192,11 @@ export const Separator = React.forwardRef<
 export const MenubarSeparator = Separator
 Separator.displayName = MenubarPrimitive.Separator.displayName
 
-export const Shortcut = ({
-    className,
-    ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-    return <span className={cn(styles.shortcut, className)} {...props} />
-}
+export const Shortcut = React.forwardRef<
+    HTMLSpanElement,
+    HTMLProps<HTMLSpanElement>
+>(({ className, ...props }, ref) => (
+    <span ref={ref} className={cn(styles.shortcut, className)} {...props} />
+))
 export const MenubarShortcut = Shortcut
-Shortcut.displayname = 'MenubarShortcut'
+Shortcut.displayName = 'MenubarShortcut'

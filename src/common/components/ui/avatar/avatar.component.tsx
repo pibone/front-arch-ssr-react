@@ -14,6 +14,7 @@ export const Root = React.forwardRef<
         {...props}
     />
 ))
+export const AvatarRoot = Root
 Root.displayName = AvatarPrimitive.Root.displayName
 
 export const Image = React.forwardRef<
@@ -26,6 +27,7 @@ export const Image = React.forwardRef<
         {...props}
     />
 ))
+export const AvatarImage = Image
 Image.displayName = AvatarPrimitive.Image.displayName
 
 export const Fallback = React.forwardRef<
@@ -38,4 +40,5 @@ export const Fallback = React.forwardRef<
         {...props}
     />
 ))
+export const AvatarFallback = Fallback
 Fallback.displayName = AvatarPrimitive.Fallback.displayName
