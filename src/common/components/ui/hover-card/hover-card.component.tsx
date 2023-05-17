@@ -4,8 +4,10 @@ import cn from 'classnames'
 import styles from './hover-card.module.css'
 
 export const Root = HoverCardPrimitive.Root
+export const HoverCardRoot = Root
 
 export const Trigger = HoverCardPrimitive.Trigger
+export const HoverCardTrigger = Trigger
 
 export const Content = React.forwardRef<
     React.ElementRef<typeof HoverCardPrimitive.Content>,
@@ -19,4 +21,5 @@ export const Content = React.forwardRef<
         {...props}
     />
 ))
+export const HoverCardContent = Content
 Content.displayName = HoverCardPrimitive.Content.displayName

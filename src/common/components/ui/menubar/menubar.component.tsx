@@ -5,14 +5,19 @@ import cn from 'classnames'
 import styles from './menubar.module.css'
 
 export const Menu = MenubarPrimitive.Menu
+export const MenubarMenu = Menu
 
 export const Group = MenubarPrimitive.Group
+export const MenubarGroup = Group
 
 export const Portal = MenubarPrimitive.Portal
+export const MenubarPortal = Portal
 
 export const Sub = MenubarPrimitive.Sub
+export const MenubarSub = Sub
 
 export const RadioGroup = MenubarPrimitive.RadioGroup
+export const MenubarRadioGroup = RadioGroup
 
 export const Root = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Root>,
@@ -25,6 +30,7 @@ export const Root = React.forwardRef<
         {...props}
     />
 ))
+export const MenubarRoot = Root
 Root.displayName = MenubarPrimitive.Root.displayName
 
 export const MenubarTrigger = React.forwardRef<
@@ -37,6 +43,7 @@ export const MenubarTrigger = React.forwardRef<
         {...props}
     />
 ))
+export const MenubarMenubarTrigger = MenubarTrigger
 MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName
 
 export const SubTrigger = React.forwardRef<
@@ -54,6 +61,7 @@ export const SubTrigger = React.forwardRef<
         <ChevronRight className={styles.icon} />
     </MenubarPrimitive.SubTrigger>
 ))
+export const MenubarSubTrigger = SubTrigger
 SubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName
 
 export const SubContent = React.forwardRef<
@@ -68,6 +76,7 @@ export const SubContent = React.forwardRef<
         />
     </MenubarPrimitive.Portal>
 ))
+export const MenubarSubContent = SubContent
 SubContent.displayName = MenubarPrimitive.SubContent.displayName
 
 export const Content = React.forwardRef<
@@ -96,6 +105,7 @@ export const Content = React.forwardRef<
         </MenubarPrimitive.Portal>
     )
 )
+export const MenubarContent = Content
 Content.displayName = MenubarPrimitive.Content.displayName
 
 export const Item = React.forwardRef<
@@ -110,6 +120,7 @@ export const Item = React.forwardRef<
         {...props}
     />
 ))
+export const MenubarItem = Item
 Item.displayName = MenubarPrimitive.Item.displayName
 
 export const CheckboxItem = React.forwardRef<
@@ -130,6 +141,7 @@ export const CheckboxItem = React.forwardRef<
         {children}
     </MenubarPrimitive.CheckboxItem>
 ))
+export const MenubarCheckboxItem = CheckboxItem
 CheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName
 
 export const RadioItem = React.forwardRef<
@@ -149,6 +161,7 @@ export const RadioItem = React.forwardRef<
         {children}
     </MenubarPrimitive.RadioItem>
 ))
+export const MenubarRadioItem = RadioItem
 RadioItem.displayName = MenubarPrimitive.RadioItem.displayName
 
 export const Label = React.forwardRef<
@@ -163,6 +176,7 @@ export const Label = React.forwardRef<
         {...props}
     />
 ))
+export const MenubarLabel = Label
 Label.displayName = MenubarPrimitive.Label.displayName
 
 export const Separator = React.forwardRef<
@@ -175,6 +189,7 @@ export const Separator = React.forwardRef<
         {...props}
     />
 ))
+export const MenubarSeparator = Separator
 Separator.displayName = MenubarPrimitive.Separator.displayName
 
 export const Shortcut = ({
@@ -183,4 +198,5 @@ export const Shortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
     return <span className={cn(styles.shortcut, className)} {...props} />
 }
+export const MenubarShortcut = Shortcut
 Shortcut.displayname = 'MenubarShortcut'

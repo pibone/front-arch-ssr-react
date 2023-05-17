@@ -11,6 +11,7 @@ export const Root = React.forwardRef<
         {children}
     </PopoverPrimitive.Root>
 ))
+export const PopoverRoot = Root
 Root.displayName = 'PopoverRoot'
 
 export const Trigger = React.forwardRef<
@@ -24,6 +25,7 @@ export const Trigger = React.forwardRef<
         {...props}
     />
 ))
+export const PopoverTrigger = Trigger
 Trigger.displayName = 'PopoverTrigger'
 
 export const Content = React.forwardRef<
@@ -40,4 +42,5 @@ export const Content = React.forwardRef<
         />
     </PopoverPrimitive.Portal>
 ))
+export const PopoverContent = Content
 Content.displayName = 'PopoverContent'

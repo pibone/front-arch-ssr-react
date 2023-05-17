@@ -17,6 +17,7 @@ export const Root = React.forwardRef<
         {children}
     </AccordionPrimitive.Root>
 ))
+export const AccordionRoot = Root
 Root.displayName = 'AccordionRoot'
 
 export const Item = React.forwardRef<
@@ -29,6 +30,7 @@ export const Item = React.forwardRef<
         {...props}
     />
 ))
+export const AccordionItem = Item
 
 Item.displayName = 'AccordionItem'
 
@@ -47,6 +49,7 @@ export const Trigger = React.forwardRef<
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
 ))
+export const AccordionTrigger = Trigger
 
 Trigger.displayName = 'AccordionTrigger'
 
@@ -62,15 +65,6 @@ export const Content = React.forwardRef<
         <div className={styles.contentWrapper}>{children}</div>
     </AccordionPrimitive.Content>
 ))
+export const AccordionContent = Content
 
 Content.displayName = 'AccordionContent'
-
-// export const Accordion: typeof AccordionRoot & {
-//     Item: typeof AccordionItem
-//     Trigger: typeof AccordionTrigger
-//     Content: typeof AccordionContent
-// } = AccordionRoot
-
-// Accordion.Item = AccordionItem
-// Accordion.Trigger = AccordionTrigger
-// Accordion.Content = AccordionContent

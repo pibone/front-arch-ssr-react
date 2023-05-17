@@ -27,6 +27,7 @@ export const Root = React.forwardRef<
         {...props}
     />
 ))
+export const AlertRoot = Root
 Root.displayName = 'AlertRoot'
 
 export const Title = React.forwardRef<
@@ -35,6 +36,7 @@ export const Title = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <h5 ref={ref} className={cn(styles.title, className)} {...props} />
 ))
+export const AlertTitle = Title
 Title.displayName = 'AlertTitle'
 
 export const Description = React.forwardRef<
@@ -43,4 +45,5 @@ export const Description = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div ref={ref} className={cn(styles.description, className)} {...props} />
 ))
+export const AlertDescription = Description
 Description.displayName = 'AlertDescription'

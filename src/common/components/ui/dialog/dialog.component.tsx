@@ -12,6 +12,7 @@ export const Root = React.forwardRef<
         {children}
     </DialogPrimitive.Root>
 ))
+export const DialogRoot = Root
 Root.displayName = 'DialogRoot'
 
 export const Trigger = React.forwardRef<
@@ -22,6 +23,7 @@ export const Trigger = React.forwardRef<
         {children}
     </DialogPrimitive.Trigger>
 ))
+export const DialogTrigger = Trigger
 Trigger.displayName = 'DialogTrigger'
 
 const Portal = ({
@@ -66,6 +68,7 @@ export const Modal = React.forwardRef<
         </DialogPrimitive.Content>
     </Portal>
 ))
+export const DialogModal = Modal
 Modal.displayName = DialogPrimitive.Content.displayName
 
 export const Header = ({
@@ -74,6 +77,7 @@ export const Header = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
     <div className={cn(styles.header, className)} {...props} />
 )
+export const DialogHeader = Header
 Header.displayName = 'DialogHeader'
 
 export const Footer = ({
@@ -82,6 +86,7 @@ export const Footer = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
     <div className={cn(styles.footer, className)} {...props} />
 )
+export const DialogFooter = Footer
 Footer.displayName = 'DialogFooter'
 
 export const Title = React.forwardRef<
@@ -94,6 +99,7 @@ export const Title = React.forwardRef<
         {...props}
     />
 ))
+export const DialogHeader = Header
 Title.displayName = DialogPrimitive.Title.displayName
 
 export const Description = React.forwardRef<
@@ -106,4 +112,5 @@ export const Description = React.forwardRef<
         {...props}
     />
 ))
+export const DialogDescription = Description
 Description.displayName = DialogPrimitive.Description.displayName

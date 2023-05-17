@@ -14,6 +14,7 @@ export const Root = React.forwardRef<
         {...props}
     />
 ))
+export const CommandRoot = Root
 Root.displayName = CommandPrimitive.displayName
 
 export const Input = React.forwardRef<
@@ -31,6 +32,7 @@ export const Input = React.forwardRef<
         />
     </div>
 ))
+export const CommandInput = Input
 
 Input.displayName = CommandPrimitive.Input.displayName
 
@@ -44,7 +46,7 @@ export const List = React.forwardRef<
         {...props}
     />
 ))
-
+export const CommandList = List
 List.displayName = CommandPrimitive.List.displayName
 
 export const Empty = React.forwardRef<
@@ -57,6 +59,7 @@ export const Empty = React.forwardRef<
         {...props}
     />
 ))
+export const CommandEmpty = Empty
 
 Empty.displayName = CommandPrimitive.Empty.displayName
 
@@ -70,6 +73,7 @@ export const Group = React.forwardRef<
         {...props}
     />
 ))
+export const CommandGroup = Group
 
 Group.displayName = CommandPrimitive.Group.displayName
 
@@ -83,6 +87,7 @@ export const Separator = React.forwardRef<
         {...props}
     />
 ))
+export const CommandSeparator = Separator
 Separator.displayName = CommandPrimitive.Separator.displayName
 
 export const Item = React.forwardRef<
@@ -95,13 +100,14 @@ export const Item = React.forwardRef<
         {...props}
     />
 ))
-
+export const CommandItem = Item
 Item.displayName = CommandPrimitive.Item.displayName
 
-export const Shortcut = ({
-    className,
-    ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-    return <span className={cn(styles.shortcut, className)} {...props} />
-}
+export const Shortcut = React.forwardRef<
+    HTMLSpanElement,
+    React.HTMLProps<HTMLSpanElement>
+>(({ className, ...props }, ref) => (
+    <span ref={ref} className={cn(styles.shortcut, className)} {...props} />
+))
+export const CommandShortcut = Shortcut
 Shortcut.displayName = 'CommandShortcut'

@@ -18,6 +18,7 @@ export const Root = React.forwardRef<
         <Viewport />
     </NavigationMenuPrimitive.Root>
 ))
+export const NavigationMenuRoot = Root
 Root.displayName = NavigationMenuPrimitive.Root.displayName
 
 export const List = React.forwardRef<
@@ -30,6 +31,7 @@ export const List = React.forwardRef<
         {...props}
     />
 ))
+export const NavigationMenuList = List
 List.displayName = NavigationMenuPrimitive.List.displayName
 
 export const Item = NavigationMenuPrimitive.Item
@@ -46,6 +48,7 @@ export const Trigger = React.forwardRef<
         {children} <ChevronDown className={styles.icon} aria-hidden="true" />
     </NavigationMenuPrimitive.Trigger>
 ))
+export const NavigationMenuItem = Item
 Trigger.displayName = NavigationMenuPrimitive.Trigger.displayName
 
 export const Content = React.forwardRef<
@@ -58,9 +61,10 @@ export const Content = React.forwardRef<
         {...props}
     />
 ))
+export const NavigationMenuContent = Content
 Content.displayName = NavigationMenuPrimitive.Content.displayName
 
-export const NavigationMenuLink = NavigationMenuPrimitive.Link
+export const Link = NavigationMenuPrimitive.Link
 
 export const Viewport = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
@@ -74,6 +78,7 @@ export const Viewport = React.forwardRef<
         />
     </div>
 ))
+export const NavigationMenuNavigationMenuLink = Link
 Viewport.displayName = NavigationMenuPrimitive.Viewport.displayName
 
 export const Indicator = React.forwardRef<
@@ -88,4 +93,5 @@ export const Indicator = React.forwardRef<
         <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
     </NavigationMenuPrimitive.Indicator>
 ))
+export const NavigationMenuIndicator = Indicator
 Indicator.displayName = NavigationMenuPrimitive.Indicator.displayName
