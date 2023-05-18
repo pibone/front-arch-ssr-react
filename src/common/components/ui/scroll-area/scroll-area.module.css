@@ -1,0 +1,25 @@
+.container {
+    @apply relative overflow-hidden;
+}
+
+.viewport {
+    @apply h-full w-full rounded-[inherit];
+}
+
+.scrollbar {
+    @apply flex touch-none select-none;
+    @apply transition-colors;
+    &[data-orientation='horizontal'] {
+        @apply flex-col w-full;
+        @apply h-2.5 border-t border-t-transparent p-[1px];
+    }
+    &[data-orientation='vertical'] {
+        @apply h-full;
+        @apply w-2.5 border-l border-l-transparent p-[1px];
+    }
+}
+
+.thumb {
+    @apply flex-1 relative;
+    @apply rounded-full bg-border;
+}
