@@ -1,0 +1,37 @@
+.container {
+}
+
+.close {
+    @apply absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary;
+    .icon {
+        @apply h-4 w-4;
+    }
+}
+
+.portal {
+    @apply fixed inset-0 z-50 flex;
+}
+
+.overlay {
+    @apply fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in;
+}
+
+.container {
+    @apply fixed z-50 scale-100 gap-4 bg-background p-6 opacity-100 shadow-lg border;
+}
+
+.header {
+    @apply flex flex-col space-y-2 text-center sm:text-left;
+}
+
+.footer {
+    @apply flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2;
+}
+
+.title {
+    @apply text-lg font-semibold text-foreground;
+}
+
+.description {
+    @apply text-sm text-muted-fg;
+}
