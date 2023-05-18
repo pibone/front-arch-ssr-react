@@ -6,13 +6,21 @@ import { Progress } from './progress.component'
 const meta: Meta<typeof Progress> = {
     title: 'Progress',
     component: Progress,
-    argTypes: {},
+    argTypes: {
+        max: {
+            control: { type: 'number ' },
+        },
+        percentage: {
+            control: { type: 'range', min: 0, max: 100 },
+        },
+    },
 }
 
 export default meta
 type Story = StoryObj<typeof Progress>
 
 export const Default: Story = {
+    render: (p) => <Progress {...p} />,
     args: {},
     async play({ canvasElement }) {
         const canvas = within(canvasElement)

@@ -5,18 +5,27 @@ import styles from './progress.module.css'
 
 export const Progress = React.forwardRef<
     React.ElementRef<typeof ProgressPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
->(({ className, value, ...props }, ref) => (
-    <ProgressPrimitive.Root
-        ref={ref}
-        data-testid="progress"
-        className={cn(styles.container, className)}
-        {...props}
-    >
-        <ProgressPrimitive.Indicator
-            className={styles.indicator}
-            style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-        />
-    </ProgressPrimitive.Root>
-))
+    Omit<
+        React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>,
+        'value'
+    > & { percentage: number }
+>(({ className, percentage, ...props }, ref) => {
+    const clampedPercentage = Math.max(Math.min(percentage || 0, 100), 0)
+    return (
+        <ProgressPrimitive.Root
+            ref={ref}
+            data-testid="progress"
+            value={clampedPercentage}
+            className={cn(styles.container, className)}
+            {...props}
+        >
+            <ProgressPrimitive.Indicator
+                className={styles.indicator}
+                style={{
+                    transform: `translateX(-${100 - clampedPercentage}%)`,
+                }}
+            />
+        </ProgressPrimitive.Root>
+    )
+})
 Progress.displayName = ProgressPrimitive.Root.displayName

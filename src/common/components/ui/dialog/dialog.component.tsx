@@ -99,7 +99,7 @@ export const Title = React.forwardRef<
         {...props}
     />
 ))
-export const DialogHeader = Header
+export const DialogTitle = Title
 Title.displayName = DialogPrimitive.Title.displayName
 
 export const Description = React.forwardRef<

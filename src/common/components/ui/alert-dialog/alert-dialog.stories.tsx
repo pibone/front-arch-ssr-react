@@ -19,7 +19,7 @@ export const Default: Story = {
             <AlertDialog.Trigger asChild>
                 <Button variant="outline">Show Dialog</Button>
             </AlertDialog.Trigger>
-            <AlertDialog.Content>
+            <AlertDialog.Modal>
                 <AlertDialog.Header>
                     <AlertDialog.Title>Are you sure?</AlertDialog.Title>
                     <AlertDialog.Description>
@@ -30,7 +30,7 @@ export const Default: Story = {
                     <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
                     <AlertDialog.Action>Continue</AlertDialog.Action>
                 </AlertDialog.Footer>
-            </AlertDialog.Content>
+            </AlertDialog.Modal>
         </AlertDialog.Root>
     ),
     args: {},

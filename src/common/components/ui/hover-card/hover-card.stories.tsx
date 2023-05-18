@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import * as HoverCard from './hover-card.component'
 import { CalendarDays } from 'lucide-react'
 import { Button } from '../button'
-import { Avatar } from '../avatar'
+import * as Avatar from '../avatar'
 
 const meta: Meta<typeof HoverCard.Root> = {
     title: 'HoverCard',
@@ -15,27 +15,27 @@ type Story = StoryObj<typeof HoverCard.Root>
 
 export const Default: Story = {
     render: (p) => (
-        <HoverCard {...p}>
+        <HoverCard.Root {...p}>
             <HoverCard.Trigger>Hover</HoverCard.Trigger>
             <HoverCard.Content>
                 The React Framework – created and maintained by @vercel.
             </HoverCard.Content>
-        </HoverCard>
+        </HoverCard.Root>
     ),
 }
 
 export const Complex: Story = {
     render: (p) => (
-        <HoverCard {...p}>
+        <HoverCard.Root {...p}>
             <HoverCard.Trigger asChild>
                 <Button variant="link">@nextjs</Button>
             </HoverCard.Trigger>
             <HoverCard.Content className="w-80">
                 <div className="flex justify-between space-x-4">
-                    <Avatar>
+                    <Avatar.Root>
                         <Avatar.Image src="https://github.com/vercel.png" />
                         <Avatar.Fallback>VC</Avatar.Fallback>
-                    </Avatar>
+                    </Avatar.Root>
                     <div className="space-y-1">
                         <h4 className="text-sm font-semibold">@nextjs</h4>
                         <p className="text-sm">
@@ -51,6 +51,6 @@ export const Complex: Story = {
                     </div>
                 </div>
             </HoverCard.Content>
-        </HoverCard>
+        </HoverCard.Root>
     ),
 }

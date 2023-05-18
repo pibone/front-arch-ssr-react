@@ -3,5 +3,5 @@
 }
 
 .indicator {
-    @apply h-full w-full flex-1 bg-primary transition-all;
+    @apply h-full w-full flex-1 bg-primary transition-transform duration-200;
 }

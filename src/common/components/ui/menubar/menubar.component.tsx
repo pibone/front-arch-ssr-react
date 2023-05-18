@@ -33,7 +33,7 @@ export const Root = React.forwardRef<
 export const MenubarRoot = Root
 Root.displayName = MenubarPrimitive.Root.displayName
 
-export const MenubarTrigger = React.forwardRef<
+export const Trigger = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
@@ -43,8 +43,8 @@ export const MenubarTrigger = React.forwardRef<
         {...props}
     />
 ))
-export const MenubarMenubarTrigger = MenubarTrigger
-MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName
+export const MenubarTrigger = Trigger
+Trigger.displayName = MenubarPrimitive.Trigger.displayName
 
 export const SubTrigger = React.forwardRef<
     React.ElementRef<typeof MenubarPrimitive.SubTrigger>,
