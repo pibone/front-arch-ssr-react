@@ -49,6 +49,7 @@
         "@radix-ui/react-slider": "^1.1.1",
         "@radix-ui/react-slot": "^1.0.1",
         "@radix-ui/react-switch": "^1.0.2",
+        "@radix-ui/react-tabs": "^1.0.3",
         "@storybook/addon-essentials": "^7.0.10",
         "@storybook/addon-interactions": "^7.0.10",
         "@storybook/addon-links": "^7.0.10",
