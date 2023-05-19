@@ -1,98 +1,77 @@
 import React from 'react'
-import { Column, HeaderGroup, Row, TableBodyProps, useTable } from 'react-table'
+import cn from 'classnames'
 import styles from './table.module.css'
 
-export type TableProps<T extends object> = {
-    data: T[]
-    columns: Column<T>[]
-}
+export const Root = React.forwardRef<
+    HTMLTableElement,
+    React.HTMLAttributes<HTMLTableElement>
+>(({ className, ...props }, ref) => (
+    <div data-testid="table" className={styles.container}>
+        <table ref={ref} className={cn(styles.table, className)} {...props} />
+    </div>
+))
+export const TableRoot = Root
+Root.displayName = 'Table'
 
-export function Table<T extends object>(props: TableProps<T>) {
-    const { data, columns } = props
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-        useTable({ columns, data })
+export const Header = React.forwardRef<
+    HTMLTableSectionElement,
+    React.HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+    <thead ref={ref} className={cn(styles.header, className)} {...props} />
+))
+export const TableHeader = Header
+Header.displayName = 'TableHeader'
 
-    return (
-        <div data-testid="table" className={styles.container}>
-            <table {...getTableProps()} className={styles.table}>
-                <TableHeaders headerGroups={headerGroups} />
-                <TableBody
-                    rows={rows}
-                    bodyProps={getTableBodyProps()}
-                    prepareRow={prepareRow}
-                />
-            </table>
-        </div>
-    )
-}
+export const Body = React.forwardRef<
+    HTMLTableSectionElement,
+    React.HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+    <tbody ref={ref} className={cn(styles.body, className)} {...props} />
+))
+export const TableBody = Body
+Body.displayName = 'TableBody'
 
-function TableHeaders<T extends object>({
-    headerGroups,
-}: {
-    headerGroups: HeaderGroup<T>[]
-}) {
-    return (
-        <thead className={styles.header}>
-            {headerGroups.map((headerGroup) => {
-                const headerGroupProps = headerGroup.getHeaderGroupProps()
-                return (
-                    <tr
-                        {...headerGroupProps}
-                        key={headerGroupProps.key}
-                        className={''}
-                    >
-                        {headerGroup.headers.map((column) => {
-                            const headerProps = column.getHeaderProps()
-                            return (
-                                <th
-                                    {...headerProps}
-                                    key={headerProps.key}
-                                    className={styles.cell}
-                                >
-                                    {column.render('Header')}
-                                </th>
-                            )
-                        })}
-                    </tr>
-                )
-            })}
-        </thead>
-    )
-}
+export const Footer = React.forwardRef<
+    HTMLTableSectionElement,
+    React.HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+    <tfoot ref={ref} className={cn(styles.footer, className)} {...props} />
+))
+export const TableFooter = Footer
+Footer.displayName = 'TableFooter'
 
-function TableBody<T extends object>({
-    rows,
-    bodyProps,
-    prepareRow,
-}: {
-    rows: Row<T>[]
-    bodyProps: TableBodyProps
-    prepareRow: (row: Row<T>) => void
-}) {
-    return (
-        <tbody {...bodyProps} className={styles.body}>
-            {rows.map((row) => {
-                prepareRow(row)
-                return (
-                    <tr
-                        {...row.getRowProps()}
-                        key={row.index}
-                        className={styles.row}
-                    >
-                        {row.cells.map((cell) => {
-                            return (
-                                <td
-                                    {...cell.getCellProps()}
-                                    key={cell.column.id}
-                                    className={styles.cell}
-                                >
-                                    {cell.render('Cell')}
-                                </td>
-                            )
-                        })}
-                    </tr>
-                )
-            })}
-        </tbody>
-    )
-}
+export const Row = React.forwardRef<
+    HTMLTableRowElement,
+    React.HTMLAttributes<HTMLTableRowElement>
+>(({ className, ...props }, ref) => (
+    <tr ref={ref} className={cn(styles.row, className)} {...props} />
+))
+export const TableRow = Row
+Row.displayName = 'TableRow'
+
+export const Head = React.forwardRef<
+    HTMLTableCellElement,
+    React.ThHTMLAttributes<HTMLTableCellElement>
+>(({ className, ...props }, ref) => (
+    <th ref={ref} className={cn(styles.head, className)} {...props} />
+))
+export const TableHead = Head
+Head.displayName = 'TableHead'
+
+export const Cell = React.forwardRef<
+    HTMLTableCellElement,
+    React.TdHTMLAttributes<HTMLTableCellElement>
+>(({ className, ...props }, ref) => (
+    <td ref={ref} className={cn(styles.cell, className)} {...props} />
+))
+export const TableCell = Cell
+Cell.displayName = 'TableCell'
+
+export const Caption = React.forwardRef<
+    HTMLTableCaptionElement,
+    React.HTMLAttributes<HTMLTableCaptionElement>
+>(({ className, ...props }, ref) => (
+    <caption ref={ref} className={cn(styles.caption, className)} {...props} />
+))
+export const TableCaption = Caption
+Caption.displayName = 'TableCaption'

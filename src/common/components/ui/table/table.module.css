@@ -1,25 +1,34 @@
 .container {
-    .table {
-        @apply min-w-full text-left text-sm font-light;
-    }
-    .row {
-        @apply border-b dark:border-neutral-500;
-    }
-    .cell {
-        @apply px-6 py-4;
-    }
+    @apply w-full overflow-auto;
+}
 
-    .head {
-        @apply border-b font-medium dark:border-neutral-500;
-    }
+.table {
+    @apply w-full caption-bottom text-sm;
+}
 
-    .body {
-        @apply border-b dark:border-neutral-500;
-        .row {
-            @apply bg-blue-200 odd:bg-red-400;
-        }
-        .cell {
-            @apply whitespace-nowrap;
-        }
-    }
+.header {
+    @apply [&_tr]:border-b;
+}
+
+.body {
+}
+
+.footer {
+    @apply bg-primary font-medium text-primary-fg;
+}
+
+.row {
+    @apply border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted;
+}
+
+.head {
+    @apply h-12 px-4 text-left align-middle font-medium text-muted-fg [&:has([role=checkbox])]:pr-0;
+}
+
+.cell {
+    @apply p-4 align-middle [&:has([role=checkbox])]:pr-0;
+}
+
+.caption {
+    @apply mt-4 text-sm text-muted-fg;
 }
