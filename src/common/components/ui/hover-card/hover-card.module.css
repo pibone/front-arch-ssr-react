@@ -2,5 +2,5 @@
 }
 
 .content {
-    @apply z-50 w-64 rounded-md border bg-popover p-4 text-popover-fg shadow-md outline-none animate-in zoom-in-90;
+    @apply z-50 w-64 rounded-md border bg-popover p-4 text-popover-fg shadow-md outline-none;
 }

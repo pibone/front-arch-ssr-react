@@ -10,7 +10,7 @@
 }
 
 .content {
-    @apply relative z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-fg shadow-md animate-in fade-in-80;
+    @apply relative z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-fg shadow-md;
     .popper {
         @apply translate-y-1;
     }
