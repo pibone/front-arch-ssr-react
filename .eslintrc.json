@@ -4,7 +4,6 @@
         "@typescript-eslint",
         "react",
         "react-hooks",
-        "unicorn",
         "boundaries",
         "prettier",
         "jest-extended"
@@ -14,7 +13,6 @@
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:sonarjs/recommended",
-        "plugin:unicorn/recommended",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
         "plugin:boundaries/recommended",
@@ -60,9 +58,7 @@
             { "argsIgnorePattern": "^_|^props$" }
         ],
         "@typescript-eslint/require-await": "off",
-        "no-unused-vars": "off",
-        "unicorn/no-new-array": "off",
-        "unicorn/prevent-abbreviations": "off"
+        "no-unused-vars": "off"
     },
     "settings": {
         "boundaries/include": ["src/**"],
