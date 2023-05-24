@@ -28,7 +28,7 @@
         "incremental": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/modules/*"]
         }
     },
     "include": [

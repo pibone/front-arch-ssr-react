@@ -1,1 +1,1 @@
-export { UsersMainView as default } from '@/modules/users/views/main'
+export { UsersMainView as default } from '@/users/views/main'

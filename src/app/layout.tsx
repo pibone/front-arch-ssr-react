@@ -1,6 +1,6 @@
-import '@/styles/main.css'
-import { RootLayout } from '@/modules/app/layouts/root'
-import { ApplicationLayout } from '@/modules/app/layouts/application'
+import '../styles/main.css'
+import { RootLayout } from '@/common/layouts/root'
+import { ApplicationLayout } from '@/common/layouts/application'
 import { PropsWithChildren } from 'react'
 
 export const metadata = {

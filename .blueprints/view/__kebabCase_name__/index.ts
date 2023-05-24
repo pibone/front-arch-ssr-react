@@ -1,1 +1,1 @@
-export { {{ pascalCase name }}View } from './{{kebabCase name}}.view'
+export * from './{{kebabCase name}}.view'
