@@ -1,0 +1,18 @@
+.container {
+}
+
+.item {
+    @apply space-y-2;
+}
+
+.description {
+    @apply text-sm text-muted-fg;
+}
+
+.message {
+    @apply text-sm font-medium text-danger;
+}
+
+.error {
+    @apply text-danger;
+}

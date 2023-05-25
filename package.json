@@ -27,6 +27,7 @@
     "devDependencies": {
         "@commitlint/cli": "^17.5.0",
         "@commitlint/config-conventional": "^17.4.4",
+        "@hookform/resolvers": "^3.1.0",
         "@mertasan/tailwindcss-variables": "^2.6.1",
         "@radix-ui/react-accordion": "^1.1.1",
         "@radix-ui/react-alert-dialog": "^1.0.3",
@@ -93,10 +94,12 @@
         "postcss-preset-env": "^8.3.2",
         "prettier": "^2.8.7",
         "react-day-picker": "^8.7.1",
+        "react-hook-form": "^7.43.9",
         "sass": "^1.62.1",
         "storybook": "^7.0.10",
         "tailwindcss-animate": "^1.0.5",
         "typescript": "5.0.2",
-        "typescript-plugin-css-modules": "^5.0.0"
+        "typescript-plugin-css-modules": "^5.0.0",
+        "zod": "^3.21.4"
     }
 }
