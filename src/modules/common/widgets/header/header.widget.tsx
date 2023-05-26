@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './header.module.css'
-import { AccountWidget } from '../account'
+import { AccountWidget } from '@/auth/widgets/account'
 import Link from 'next/link'
 
 export type HeaderWidgetProps = {}
