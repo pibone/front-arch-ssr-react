@@ -1,8 +1,0 @@
-.container {
-    --color-primary: 153 246 228;
-    --color-secondary: 37 99 235;
-    &:hover {
-        --color-primary: 94 234 212;
-    }
-    @apply hover:scale-105 transition-transform;
-}

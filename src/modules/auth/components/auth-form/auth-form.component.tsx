@@ -1,7 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
 import { Button } from '@/common/components/ui/button'
-import * as Form from '../../ui/form'
+import * as Form from '@/common/components/ui/form'
 import { z } from 'zod'
 
 export type AuthFormProps = Omit<

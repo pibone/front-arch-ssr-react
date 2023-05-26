@@ -1,7 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 
-import { AuthForm } from '@/common/components/auth/auth-form'
+import { AuthForm } from '@/auth/components/auth-form'
 
 export const metadata: Metadata = {
     title: 'Authentication',
