@@ -39,9 +39,9 @@ function LoggedInUser() {
     const { data: session } = useSession()
     return (
         <Avatar.Root>
-            <Avatar.Image src={session.user?.image} />
+            <Avatar.Image src={session?.user?.image ?? undefined} />
             <Avatar.Fallback>
-                {(session.user?.name ?? '')
+                {(session?.user?.name ?? '')
                     .split(/\s+/)
                     .map((v) => v[0].toUpperCase())
                     .join('') || 'Unknown user'}

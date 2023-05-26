@@ -1,14 +1,12 @@
 import React from 'react'
-import { Metadata } from 'next'
+import { useSearchParams } from 'next/navigation'
 
 import { AuthForm } from '@/auth/components/auth-form'
-
-export const metadata: Metadata = {
-    title: 'Authentication',
-    description: 'Authentication forms built using the components.',
-}
+import { signIn } from 'next-auth/react'
 
 export function SignInView() {
+    const searchParams = useSearchParams()
+    const callbackUrl = searchParams.get('callbackUrl') || '/profile'
     return (
         <>
             <div className="container relative md:h-[800px] grid items-center justify-stretch md:justify-center lg:max-w-none p-0">
@@ -30,7 +28,19 @@ export function SignInView() {
                                 Enter your username below to create your account
                             </p>
                         </div>
-                        <AuthForm />
+                        <AuthForm
+                            onSubmit={async (credentials) => {
+                                const result = await signIn('credentials', {
+                                    redirect: false,
+                                    ...credentials,
+                                    callbackUrl,
+                                })
+
+                                if (!result?.ok) {
+                                    return 'Invalid credentials'
+                                }
+                            }}
+                        />
                     </div>
                 </div>
             </div>

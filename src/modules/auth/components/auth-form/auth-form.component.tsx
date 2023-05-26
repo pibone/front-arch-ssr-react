@@ -3,16 +3,20 @@ import cn from 'classnames'
 import { Button } from '@/common/components/ui/button'
 import * as Form from '@/common/components/ui/form'
 import { z } from 'zod'
+import { FieldError } from 'react-hook-form'
 
+export type AuthFormCredentials = { username: string; password: string }
 export type AuthFormProps = Omit<
     React.HTMLAttributes<HTMLDivElement>,
     'onSubmit'
 > & {
-    onSubmit(credentials: { email: string; password: string }): Promise
+    onSubmit: (credentials: AuthFormCredentials) => Promise<void | string>
 }
 
 export function AuthForm({ className, onSubmit, ...props }: AuthFormProps) {
-    const form = Form.useZodForm({
+    const form = Form.useZodForm<
+        AuthFormCredentials & { root: { submit: FieldError } }
+    >({
         criteriaMode: 'firstError',
         schema: z.object({
             username: z
@@ -25,7 +29,23 @@ export function AuthForm({ className, onSubmit, ...props }: AuthFormProps) {
                 message: 'Password must contain at least 8 characters',
             }),
         }),
-        onSubmit,
+        onSubmit: async (data) => {
+            try {
+                const error = await onSubmit(data)
+                if (typeof error === 'string') {
+                    form.setError('root.submit', {
+                        type: 'server',
+                        message: error,
+                    })
+                }
+            } catch (e: any) {
+                console.error('AuthForm.onSubmit error', e)
+                form.setError('root.submit', {
+                    type: 'unknown',
+                    message: 'Unknown error',
+                })
+            }
+        },
     })
     return (
         <div
@@ -62,6 +82,9 @@ export function AuthForm({ className, onSubmit, ...props }: AuthFormProps) {
                         )}
                     />
                 </div>
+                <Form.CustomMessage>
+                    {form.formState.errors.root?.submit?.message || null}
+                </Form.CustomMessage>
                 <Button type="submit">Sign In</Button>
             </Form.Root>
         </div>

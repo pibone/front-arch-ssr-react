@@ -4,12 +4,6 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": false
-    },
-    "eslint.codeActionsOnSave.mode": "problems",
-    "typescript.validate.enable": false,
     "javascript.validate.enable": false,
     "javascript.suggestionActions.enabled": false,
     "blueprint.templatesPath": ["./.blueprints"],
