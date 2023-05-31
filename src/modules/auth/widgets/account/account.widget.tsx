@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from './account.module.css'
 import classNames from 'classnames'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import * as Avatar from '@/common/components/ui/avatar'
-import { LoadingButton } from '@/common/components/loading-button'
+import * as Popover from '@/common/components/ui/popover'
+import { Button } from '@/common/components/ui/button'
 
 export type AccountWidgetProps = {
     className: string
@@ -26,26 +27,42 @@ function selectComponent(authStatus: ReturnType<typeof useSession>['status']) {
     return authStatus === 'authenticated' ? (
         <LoggedInUser />
     ) : (
-        <LoadingButton
-            loading={authStatus === 'loading'}
-            onClick={() => signIn()}
-        >
-            Sign In
-        </LoadingButton>
+        <Button onClick={() => signIn()}>Sign In</Button>
     )
 }
 
 function LoggedInUser() {
     const { data: session } = useSession()
     return (
-        <Avatar.Root>
-            <Avatar.Image src={session?.user?.image ?? undefined} />
-            <Avatar.Fallback>
-                {(session?.user?.name ?? '')
-                    .split(/\s+/)
-                    .map((v) => v[0].toUpperCase())
-                    .join('') || 'Unknown user'}
-            </Avatar.Fallback>
-        </Avatar.Root>
+        <Popover.Root>
+            <Popover.Trigger asChild className="cursor-pointer">
+                <Avatar.Root>
+                    <Avatar.Image src={session?.user?.image ?? undefined} />
+                    <Avatar.Fallback>
+                        {(session?.user?.name ?? '')
+                            .split(/\s+/)
+                            .map((v) => v[0].toUpperCase())
+                            .join('') || 'Unknown user'}
+                    </Avatar.Fallback>
+                </Avatar.Root>
+            </Popover.Trigger>
+            <Popover.Content>
+                <LoggedInMenu />
+            </Popover.Content>
+        </Popover.Root>
+    )
+}
+
+function LoggedInMenu() {
+    return (
+        <Button
+            onClick={() =>
+                signOut({
+                    redirect: true,
+                })
+            }
+        >
+            Sign Out
+        </Button>
     )
 }

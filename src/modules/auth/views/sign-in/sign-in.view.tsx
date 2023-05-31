@@ -1,12 +1,15 @@
 import React from 'react'
-import { useSearchParams } from 'next/navigation'
 
-import { AuthForm } from '@/auth/components/auth-form'
-import { signIn } from 'next-auth/react'
+import { LoginWidget } from '../../widgets/login'
 
-export function SignInView() {
-    const searchParams = useSearchParams()
-    const callbackUrl = searchParams.get('callbackUrl') || '/profile'
+type SignInViewProps = {
+    // query parameters
+    searchParams: { [key: string]: string | string[] | undefined }
+    // url parameters
+    params: { [key: string]: string | undefined }
+}
+
+export function SignInView(props: SignInViewProps) {
     return (
         <>
             <div className="container relative md:h-[800px] grid items-center justify-stretch md:justify-center lg:max-w-none p-0">
@@ -28,19 +31,7 @@ export function SignInView() {
                                 Enter your username below to create your account
                             </p>
                         </div>
-                        <AuthForm
-                            onSubmit={async (credentials) => {
-                                const result = await signIn('credentials', {
-                                    redirect: false,
-                                    ...credentials,
-                                    callbackUrl,
-                                })
-
-                                if (!result?.ok) {
-                                    return 'Invalid credentials'
-                                }
-                            }}
-                        />
+                        <LoginWidget />
                     </div>
                 </div>
             </div>

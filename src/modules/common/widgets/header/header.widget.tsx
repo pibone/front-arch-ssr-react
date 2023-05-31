@@ -9,7 +9,7 @@ export function HeaderWidget(props: HeaderWidgetProps) {
     return (
         <div
             data-testid="header-widget"
-            className="flex bg-secondary text-primary p-4"
+            className="flex bg-white border-b text-primary p-4"
         >
             <Link href="/" className={styles.logo}>
                 Logo

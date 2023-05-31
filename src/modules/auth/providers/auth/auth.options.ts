@@ -1,4 +1,4 @@
-import { AuthOptions } from 'next-auth'
+import { AuthOptions, User } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const authOptions: AuthOptions = {
@@ -15,14 +15,15 @@ export const authOptions: AuthOptions = {
                 email: { type: 'email' },
                 password: { type: 'password' },
             },
-            async authorize(_credentials, _req) {
+            authorize: async (credentials, _req) => {
                 // Connect with login API in the backend
-                const user = {
-                    id: 1,
-                    email: 'example@example.com',
-                    name: 'Example',
+                const user: User = {
+                    id: '1',
+                    email: 'dpenai@pibone.com',
+                    name: 'Dani Peña Iglesias',
                 }
-                return user ? user : null
+
+                return credentials?.password === 'safe-password' ? user : null
             },
         }),
     ],

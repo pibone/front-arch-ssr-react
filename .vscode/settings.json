@@ -32,5 +32,6 @@
         // "**/.gitignore": true,
         // "**/.eslint*": true,
         // "**/.vscode": true
-    }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

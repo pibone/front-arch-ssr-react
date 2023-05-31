@@ -1,9 +1,8 @@
 import React from 'react'
 import cn from 'classnames'
-import { Button } from '@/common/components/ui/button'
+import { LoadingButton } from '@/common/components/loading-button'
 import * as Form from '@/common/components/ui/form'
 import { z } from 'zod'
-import { FieldError } from 'react-hook-form'
 
 export type AuthFormCredentials = { username: string; password: string }
 export type AuthFormProps = Omit<
@@ -14,9 +13,7 @@ export type AuthFormProps = Omit<
 }
 
 export function AuthForm({ className, onSubmit, ...props }: AuthFormProps) {
-    const form = Form.useZodForm<
-        AuthFormCredentials & { root: { submit: FieldError } }
-    >({
+    const form = Form.useZodForm<AuthFormCredentials>({
         criteriaMode: 'firstError',
         schema: z.object({
             username: z
@@ -47,6 +44,7 @@ export function AuthForm({ className, onSubmit, ...props }: AuthFormProps) {
             }
         },
     })
+
     return (
         <div
             data-testid="auth-form"
@@ -82,10 +80,15 @@ export function AuthForm({ className, onSubmit, ...props }: AuthFormProps) {
                         )}
                     />
                 </div>
-                <Form.CustomMessage>
+                <Form.CustomMessage isError>
                     {form.formState.errors.root?.submit?.message || null}
                 </Form.CustomMessage>
-                <Button type="submit">Sign In</Button>
+                <LoadingButton
+                    loading={form.formState.isSubmitting}
+                    type="submit"
+                >
+                    Sign In
+                </LoadingButton>
             </Form.Root>
         </div>
     )

@@ -10,7 +10,7 @@
 }
 
 .message {
-    @apply text-sm font-medium text-danger;
+    @apply text-sm font-medium;
 }
 
 .error {
