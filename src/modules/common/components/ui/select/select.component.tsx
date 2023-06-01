@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { ComponentPropsWithoutRef } from 'react'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { Check, ChevronDown } from 'lucide-react'
 import cn from 'classnames'
 import styles from './select.module.css'
 
-export const Root = React.forwardRef<
-    React.ElementRef<typeof SelectPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
->((props, ref) => (
-    <SelectPrimitive.Root ref={ref} data-testid="select" {...props} />
-))
+export const Root = ({
+    value,
+    ...props
+}: ComponentPropsWithoutRef<typeof SelectPrimitive.Root>) => (
+    <SelectPrimitive.Root
+        value={value}
+        key={value ? '' : undefined}
+        data-testid="select"
+        {...props}
+    />
+)
 export const SelectRoot = Root
 Root.displayName = SelectPrimitive.Root.displayName
 
