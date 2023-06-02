@@ -10,6 +10,23 @@ declare module '*.module.scss' {
     export default classes
 }
 
+declare module uxcale {
+    declare type ApiResult<TData extends object> = {
+        data: TData
+    }
+
+    declare type PaginatedApiResult<TResource extends object> = ApiResult<
+        TResource[]
+    > & {
+        pagination: {
+            pageSize: number
+            pageNumber: number
+            totalPages: number
+            totalElements: number
+        }
+    }
+}
+
 declare type EmptyObject = Record<string, never>
 
 /**
@@ -92,7 +109,7 @@ declare type OptionalKeys<T> = {
  *   // Expect: string;
  *   type Response = PromiseType<Promise<string>>;
  */
-export type PromiseType<T extends Promise<any>> = T extends Promise<infer U>
+declare type PromiseType<T extends Promise<any>> = T extends Promise<infer U>
     ? U
     : never
 

@@ -1,6 +1,9 @@
 import { PropsWithChildren } from 'react'
+import { QueryProvider } from '../query'
 import { AuthProvider } from '../../../auth/providers/auth'
 
 export const AppProvider = ({ children }: PropsWithChildren) => (
-    <AuthProvider>{children}</AuthProvider>
+    <AuthProvider>
+        <QueryProvider>{children}</QueryProvider>
+    </AuthProvider>
 )
