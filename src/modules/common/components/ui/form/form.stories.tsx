@@ -18,30 +18,35 @@ type Story = StoryObj<typeof Form.Root>
 
 export const Default: Story = {
     render: function Render(p) {
-        const form = Form.useZodForm({
-            criteriaMode: 'firstError',
-            schema: z
-                .object({
-                    username: z
-                        .string()
-                        .min(2, {
-                            message: 'Username must be at least 2 characters',
-                        })
-                        .max(50),
-                    password: z.string().min(8, {
-                        message: 'Password must contain at least 8 characters',
-                    }),
-                    confirmPassword: z.string(),
-                    address: z.string().optional(),
-                })
-                .refine(
-                    ({ password, confirmPassword }) =>
-                        password === confirmPassword,
-                    {
-                        message: 'Passwords do not match',
-                        path: ['confirmPassword'],
-                    }
-                ),
+        const schema = z
+            .object({
+                username: z
+                    .string()
+                    .min(2, {
+                        message: 'Username must be at least 2 characters',
+                    })
+                    .max(50),
+                password: z.string().min(8, {
+                    message: 'Password must contain at least 8 characters',
+                }),
+                confirmPassword: z.string(),
+                address: z.string().optional(),
+            })
+            .refine(
+                ({ password, confirmPassword }) => password === confirmPassword,
+                {
+                    message: 'Passwords do not match',
+                    path: ['confirmPassword'],
+                }
+            )
+        const form = Form.useZodForm<z.infer<typeof schema>>({
+            schema,
+            defaultValues: {
+                username: '',
+                password: '',
+                confirmPassword: '',
+                address: '',
+            },
             onSubmit: action('onSubmit'),
         })
         return (
