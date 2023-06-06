@@ -1,9 +1,12 @@
 import { PropsWithChildren } from 'react'
-import { QueryProvider } from '../query'
 import { AuthProvider } from '../../../auth/providers/auth'
+import { QueryProvider } from '../query'
+import { AxiosProvider } from '../axios'
 
 export const AppProvider = ({ children }: PropsWithChildren) => (
     <AuthProvider>
-        <QueryProvider>{children}</QueryProvider>
+        <AxiosProvider>
+            <QueryProvider>{children}</QueryProvider>
+        </AxiosProvider>
     </AuthProvider>
 )
