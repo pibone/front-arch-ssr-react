@@ -25,6 +25,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+        "@next/next/no-head-element": "off",
         "boundaries/element-types": [
             2,
             {
