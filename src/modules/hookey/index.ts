@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useCallback, useMemo, useState } from 'react'
 
 export namespace Pagination {
     export type UsePaginatedQueryOptions<TExtension extends object = {}> = {
@@ -30,6 +30,7 @@ export namespace Pagination {
         isFetching: boolean
         isError: boolean
         isSuccess: boolean
+        invalidateCache: () => Promise<void>
     }
 
     export function getPaginationControls<TResource>(
@@ -63,18 +64,21 @@ export namespace Pagination {
         TResource extends object = {},
         TApiResult extends object = {}
     >({
-        cacheKey,
+        cacheKey: stringOrArrayCacheKey,
         clientFn,
         getCount,
         getPageData,
     }: {
-        cacheKey: string
+        cacheKey: string | string[]
         clientFn: (
             params: Pagination.UsePaginatedQueryParams<TParams>
         ) => Promise<TApiResult>
         getCount: (result: TApiResult) => number
         getPageData: (result: TApiResult) => TResource[]
     }) {
+        const cacheKey = Array.isArray(stringOrArrayCacheKey)
+            ? stringOrArrayCacheKey
+            : [stringOrArrayCacheKey]
         return function usePagination(
             options: Pagination.UsePaginatedQueryOptions<TParams>
         ): Pagination.UsePaginatedQueryResult<TResource, TApiResult> {
@@ -84,20 +88,32 @@ export namespace Pagination {
                 page,
             }
             const query = useQuery({
-                queryKey: [cacheKey, params] as [string, typeof params],
+                queryKey: [...cacheKey, params] as [string, typeof params],
                 queryFn: async ({ queryKey: [_key, params] }) =>
                     Promise.resolve(clientFn(params)),
             })
 
+            const queryClient = useQueryClient()
+
             return {
-                pagination: Pagination.getPaginationControls(
-                    page,
-                    setPage,
-                    options.size,
-                    query.data !== undefined ? getCount(query.data) : undefined,
-                    query.data !== undefined
-                        ? getPageData(query.data)
-                        : undefined
+                pagination: useMemo(
+                    () =>
+                        Pagination.getPaginationControls(
+                            page,
+                            setPage,
+                            options.size,
+                            query.data !== undefined
+                                ? getCount(query.data)
+                                : undefined,
+                            query.data !== undefined
+                                ? getPageData(query.data)
+                                : undefined
+                        ),
+                    [options.size, page, query.data]
+                ),
+                invalidateCache: useCallback(
+                    () => queryClient.invalidateQueries(cacheKey),
+                    [queryClient]
                 ),
                 ...query,
             }
