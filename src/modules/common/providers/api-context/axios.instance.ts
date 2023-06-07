@@ -14,6 +14,7 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use(async (config) => {
+    console.log('request intercepted')
     if (isServer) {
         const { cookies } = await import('next/headers'),
             token = cookies().get('token')?.value

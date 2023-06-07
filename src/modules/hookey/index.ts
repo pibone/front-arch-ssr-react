@@ -1,4 +1,5 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { UseQueryResult, useQuery, useQueryClient } from '@tanstack/react-query'
+import { AxiosInstance } from 'axios'
 import { useCallback, useMemo, useState } from 'react'
 
 export namespace Pagination {
@@ -22,14 +23,12 @@ export namespace Pagination {
         pageData: TResource[] | undefined
     }
 
-    export type UsePaginatedQueryResult<TResource, TData, TError = unknown> = {
+    export type UsePaginatedQueryResult<
+        TResource,
+        TData,
+        TError = unknown
+    > = UseQueryResult<TData, TError> & {
         pagination: PaginationControls<TResource>
-        data: TData | undefined
-        error: TError | undefined
-        isLoading: boolean
-        isFetching: boolean
-        isError: boolean
-        isSuccess: boolean
         invalidateCache: () => Promise<void>
     }
 
@@ -62,15 +61,19 @@ export namespace Pagination {
     export function makePaginationHook<
         TParams extends {} = {},
         TResource extends object = {},
-        TApiResult extends object = {}
+        TApiResult extends object = {},
+        TApiContext extends { client: any } = { client: AxiosInstance }
     >({
         cacheKey: stringOrArrayCacheKey,
+        useApiContext,
         clientFn,
         getCount,
         getPageData,
     }: {
         cacheKey: string | string[]
-        clientFn: (
+        useApiContext: () => TApiContext
+        clientFn: <T extends TApiContext>(
+            this: T,
             params: Pagination.UsePaginatedQueryParams<TParams>
         ) => Promise<TApiResult>
         getCount: (result: TApiResult) => number
@@ -83,6 +86,7 @@ export namespace Pagination {
             options: Pagination.UsePaginatedQueryOptions<TParams>
         ): Pagination.UsePaginatedQueryResult<TResource, TApiResult> {
             const [page, setPage] = useState(1)
+            const apiContext = useApiContext()
             const params: Pagination.UsePaginatedQueryParams<typeof options> = {
                 ...options,
                 page,
@@ -90,7 +94,7 @@ export namespace Pagination {
             const query = useQuery({
                 queryKey: [...cacheKey, params] as [string, typeof params],
                 queryFn: async ({ queryKey: [_key, params] }) =>
-                    Promise.resolve(clientFn(params)),
+                    Promise.resolve(clientFn.call(apiContext, params)),
             })
 
             const queryClient = useQueryClient()

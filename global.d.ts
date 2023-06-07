@@ -114,7 +114,7 @@ declare type PromiseType<T extends Promise<any>> = T extends Promise<infer U>
     : never
 
 /**
- * Optional
+ * WithOptional
  * @desc From `T` make a set of properties by key `K` become optional
  * @example
  *    type Props = {
@@ -124,10 +124,47 @@ declare type PromiseType<T extends Promise<any>> = T extends Promise<infer U>
  *    };
  *
  *    // Expect: { name?: string; age?: number; visible?: boolean; }
- *    type Props = Optional<Props>;
+ *    type Props = WithOptional<Props>;
  *
  *    // Expect: { name: string; age?: number; visible?: boolean; }
- *    type Props = Optional<Props, 'age' | 'visible'>;
+ *    type Props = WithOptional<Props, 'age' | 'visible'>;
  */
-declare type Optional<T, K extends keyof T = keyof T> = Omit<T, K> &
+declare type WithOptional<T, K extends keyof T = keyof T> = Omit<T, K> &
     Partial<Pick<T, K>>
+
+/**
+ * WithRequired
+ * @desc From `T` make a set of properties by key `K` become required
+ * @example
+ *    type Props = {
+ *      name?: string;
+ *      age?: number;
+ *      visible?: boolean;
+ *    };
+ *
+ *    // Expect: { name: string; age: number; visible: boolean; }
+ *    type Props = WithRequired<Props>;
+ *
+ *    // Expect: { name?: string; age: number; visible: boolean; }
+ *    type Props = WithRequired<Props, 'age' | 'visible'>;
+ */
+declare type WithRequired<T, K extends keyof T = keyof T> = Omit<T, K> &
+    Required<Pick<T, K>>
+
+/**
+ * FirstParam
+ * @desc From a function `T` get the first parameter type
+ * @example
+ *    type Props = {
+ *      name: string;
+ *      age: number;
+ *      visible: boolean;
+ *    };
+ *
+ *    // Expect: { name?: string; age?: number; visible?: boolean; }
+ *    type Props = WithOptional<Props>;
+ *
+ *    // Expect: { name: string; age?: number; visible?: boolean; }
+ *    type Props = WithOptional<Props, 'age' | 'visible'>;
+ */
+declare type FirstParam<T extends (...args: any) => any> = Parameters<T>[0]
