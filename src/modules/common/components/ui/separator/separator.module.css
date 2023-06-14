@@ -1,11 +1,10 @@
-.container {
+div:where(.container) {
     @apply shrink-0 bg-border;
-}
+    &:where(.horizontal) {
+        @apply h-[1px] w-full;
+    }
 
-.horizontal {
-    @apply h-[1px] w-full;
-}
-
-.vertical {
-    @apply h-full w-[1px];
+    &:where(.vertical) {
+        @apply h-full w-[1px];
+    }
 }

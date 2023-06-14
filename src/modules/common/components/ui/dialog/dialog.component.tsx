@@ -4,16 +4,8 @@ import styles from './dialog.module.css'
 import { X } from 'lucide-react'
 import cn from 'classnames'
 
-export const Root = React.forwardRef<
-    React.ElementRef<typeof DialogPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
->(({ children, ...props }, ref) => (
-    <DialogPrimitive.Root ref={ref} {...props}>
-        {children}
-    </DialogPrimitive.Root>
-))
+export const Root = DialogPrimitive.Root
 export const DialogRoot = Root
-Root.displayName = 'DialogRoot'
 
 export const Trigger = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Trigger>,
@@ -31,7 +23,7 @@ const Portal = ({
     children,
     ...props
 }: DialogPrimitive.DialogPortalProps) => (
-    <DialogPrimitive.Portal className={className} {...props}>
+    <DialogPrimitive.Portal className={cn(styles.portal, className)} {...props}>
         <div className={styles.portal}>{children}</div>
     </DialogPrimitive.Portal>
 )

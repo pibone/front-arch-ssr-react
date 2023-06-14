@@ -1,3 +1,3 @@
-.container {
+div:where(.container) {
     @apply animate-pulse bg-muted;
 }

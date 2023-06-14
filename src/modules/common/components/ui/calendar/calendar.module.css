@@ -1,64 +1,64 @@
-.container {
+div:where(.container) {
     @apply p-3;
-}
 
-.months {
-    @apply flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0;
-}
-.month {
-    @apply space-y-4;
-}
-.caption {
-    @apply flex justify-center pt-1 relative items-center;
-}
-.caption_label {
-    @apply text-sm font-medium;
-}
-.nav {
-    @apply space-x-1 flex items-center;
-}
-.nav_button {
-    @apply h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100;
-}
-.nav_button_previous {
-    @apply absolute left-1;
-}
-.nav_button_next {
-    @apply absolute right-1;
-}
-.table {
-    @apply w-full border-collapse space-y-1;
-}
-.head_row {
-    @apply flex;
-}
-.head_cell {
-    @apply text-muted-fg rounded-md w-9 font-normal text-[0.8rem];
-}
-.row {
-    @apply flex w-full mt-2;
-}
-.cell {
-    @apply text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20;
-}
-.day {
-    @apply h-9 w-9 p-0 font-normal aria-selected:opacity-100;
-}
-.day_selected {
-    @apply bg-primary text-primary-fg hover:bg-primary hover:text-primary-fg focus:bg-primary focus:text-primary-fg;
-}
-.day_today {
-    @apply bg-accent text-accent-fg;
-}
-.day_outside {
-    @apply text-muted-fg opacity-50;
-}
-.day_disabled {
-    @apply text-muted-fg opacity-50;
-}
-.day_range_middle {
-    @apply aria-selected:bg-accent aria-selected:text-accent-fg;
-}
-.day_hidden {
-    @apply invisible;
+    :where(.months) {
+        @apply flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0;
+    }
+    :where(.month) {
+        @apply space-y-4;
+    }
+    :where(.caption) {
+        @apply flex justify-center pt-1 relative items-center;
+    }
+    :where(.caption_label) {
+        @apply text-sm font-medium;
+    }
+    :where(.nav) {
+        @apply space-x-1 flex items-center;
+    }
+    :where(.nav_button) {
+        @apply h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100;
+    }
+    :where(.nav_button_previous) {
+        @apply absolute left-1;
+    }
+    :where(.nav_button_next) {
+        @apply absolute right-1;
+    }
+    :where(.table) {
+        @apply w-full border-collapse space-y-1;
+    }
+    :where(.head_row) {
+        @apply flex;
+    }
+    :where(.head_cell) {
+        @apply text-muted-fg rounded-md w-9 font-normal text-[0.8rem];
+    }
+    :where(.row) {
+        @apply flex w-full mt-2;
+    }
+    :where(.cell) {
+        @apply text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20;
+    }
+    :where(.day) {
+        @apply h-9 w-9 p-0 font-normal aria-selected:opacity-100;
+    }
+    :where(.day_selected) {
+        @apply bg-primary text-primary-fg hover:bg-primary hover:text-primary-fg focus:bg-primary focus:text-primary-fg;
+    }
+    :where(.day_today) {
+        @apply bg-accent text-accent-fg;
+    }
+    :where(.day_outside) {
+        @apply text-muted-fg opacity-50;
+    }
+    :where(.day_disabled) {
+        @apply text-muted-fg opacity-50;
+    }
+    :where(.day_range_middle) {
+        @apply aria-selected:bg-accent aria-selected:text-accent-fg;
+    }
+    :where(.day_hidden) {
+        @apply invisible;
+    }
 }

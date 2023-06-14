@@ -11,7 +11,7 @@ export const Root = React.forwardRef<
     <AccordionPrimitive.Root
         data-testid="accordion"
         ref={ref}
-        className={className}
+        className={cn(styles.container, className)}
         {...props}
     >
         {children}

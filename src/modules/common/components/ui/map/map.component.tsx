@@ -1,18 +1,14 @@
 import React from 'react'
 import 'leaflet/dist/leaflet.css'
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import L from 'leaflet'
 import * as Leaflet from 'react-leaflet'
 
-L.Icon.Default.mergeOptions(
-    Object.fromEntries(
-        Object.entries({ iconRetinaUrl, iconUrl, shadowUrl }).map(
-            ([key, value]) => [key, value.src]
-        )
-    )
-)
+const DEFAULT_MARKER_ICON = L.icon({
+    iconUrl: iconUrl.src,
+    shadowUrl: shadowUrl.src,
+})
 
 export const Root = React.forwardRef<
     React.ElementRef<typeof Leaflet.MapContainer>,
@@ -40,7 +36,9 @@ export const MapRoot = Root
 export const Marker = React.forwardRef<
     React.ElementRef<typeof Leaflet.Marker>,
     React.ComponentPropsWithoutRef<typeof Leaflet.Marker>
->(({ ...props }, ref) => <Leaflet.Marker ref={ref} {...props} />)
+>(({ icon = DEFAULT_MARKER_ICON, ...props }, ref) => (
+    <Leaflet.Marker icon={icon} ref={ref} {...props} />
+))
 Marker.displayName = 'MapMarker'
 export const MapMarker = Marker
 

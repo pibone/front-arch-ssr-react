@@ -1,18 +1,17 @@
-.container {
-}
+form:where(.container) {
+    :where(.item) {
+        @apply space-y-2;
+    }
 
-.item {
-    @apply space-y-2;
-}
+    :where(.description) {
+        @apply text-sm text-muted-fg;
+    }
 
-.description {
-    @apply text-sm text-muted-fg;
-}
+    :where(.message) {
+        @apply text-sm font-medium;
+    }
 
-.message {
-    @apply text-sm font-medium;
-}
-
-.error {
-    @apply text-danger;
+    :where(.error) {
+        @apply text-danger;
+    }
 }

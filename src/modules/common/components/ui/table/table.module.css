@@ -1,34 +1,33 @@
-.container {
+div:where(.container) {
     @apply w-full overflow-auto;
-}
+    :where(.table) {
+        @apply w-full caption-bottom text-sm;
+    }
 
-.table {
-    @apply w-full caption-bottom text-sm;
-}
+    :where(.header) {
+        @apply [&_tr]:border-b;
+    }
 
-.header {
-    @apply [&_tr]:border-b;
-}
+    :where(.body) {
+    }
 
-.body {
-}
+    :where(.footer) {
+        @apply bg-primary font-medium text-primary-fg;
+    }
 
-.footer {
-    @apply bg-primary font-medium text-primary-fg;
-}
+    :where(.row) {
+        @apply border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted;
+    }
 
-.row {
-    @apply border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted;
-}
+    :where(.head) {
+        @apply h-12 px-4 text-left align-middle font-medium text-muted-fg [&:has([role=checkbox])]:pr-0;
+    }
 
-.head {
-    @apply h-12 px-4 text-left align-middle font-medium text-muted-fg [&:has([role=checkbox])]:pr-0;
-}
+    :where(.cell) {
+        @apply p-4 align-middle [&:has([role=checkbox])]:pr-0;
+    }
 
-.cell {
-    @apply p-4 align-middle [&:has([role=checkbox])]:pr-0;
-}
-
-.caption {
-    @apply mt-4 text-sm text-muted-fg;
+    :where(.caption) {
+        @apply mt-4 text-sm text-muted-fg;
+    }
 }

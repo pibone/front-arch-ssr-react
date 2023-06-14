@@ -1,9 +1,42 @@
-.container {
-}
-
-.subtrigger {
-    @apply flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
-    &Inset {
+:where(.content) {
+    @apply z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md animate-in fade-in-80;
+    :where(.subtrigger) {
+        @apply flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
+    }
+    :where(.subtriggerIcon) {
+        @apply ml-auto h-4 w-4;
+    }
+    :where(.item) {
+        @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+    }
+    :where(.checkboxItem) {
+        @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+    }
+    :where(.radioItem) {
+        @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+    }
+    :where(.itemIndicatorWrapper) {
+        @apply absolute left-2 flex h-3.5 w-3.5 items-center justify-center;
+    }
+    :where(.radioItemIndicator) {
+        @apply h-2 w-2 fill-current;
+    }
+    :where(.checkboxItemIndicator) {
+        @apply h-4 w-4;
+    }
+    :where(.subcontent) {
+        @apply z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md animate-in slide-in-from-left-1;
+    }
+    :where(.inset) {
         @apply pl-8;
+    }
+    :where(.label) {
+        @apply px-2 py-1.5 text-sm font-semibold text-foreground;
+    }
+    :where(.separator) {
+        @apply -mx-1 my-1 h-px bg-border;
+    }
+    :where(.menuSeparator) {
+        @apply ml-auto text-xs tracking-widest text-muted-fg;
     }
 }

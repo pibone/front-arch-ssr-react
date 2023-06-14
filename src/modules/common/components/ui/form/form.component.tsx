@@ -71,7 +71,7 @@ export const Root = React.forwardRef<HTMLFormElement, FormProps>(
                 <form
                     data-testid="form"
                     ref={ref}
-                    className={className}
+                    className={cn(className, styles.container)}
                     {...props}
                 >
                     {children}

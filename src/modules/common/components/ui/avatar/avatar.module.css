@@ -1,11 +1,10 @@
-.container {
+span:where(.container) {
     @apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
-}
+    :where(.image) {
+        @apply aspect-square h-full w-full;
+    }
 
-.image {
-    @apply aspect-square h-full w-full;
-}
-
-.fallback {
-    @apply flex h-full w-full items-center justify-center rounded-full bg-muted;
+    :where(.fallback) {
+        @apply flex h-full w-full items-center justify-center rounded-full bg-muted;
+    }
 }

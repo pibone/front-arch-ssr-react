@@ -1,15 +1,14 @@
-.container {
+div:where(.container) {
     @apply grid gap-2;
-}
+    :where(.item) {
+        @apply h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    }
 
-.item {
-    @apply h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
-}
+    :where(.indicator) {
+        @apply flex items-center justify-center;
+    }
 
-.indicator {
-    @apply flex items-center justify-center;
-}
-
-.icon {
-    @apply h-2.5 w-2.5 fill-current text-current;
+    :where(.icon) {
+        @apply h-2.5 w-2.5 fill-current text-current;
+    }
 }

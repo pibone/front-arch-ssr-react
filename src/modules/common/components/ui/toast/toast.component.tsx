@@ -29,11 +29,11 @@ const ToastViewport = React.forwardRef<
 ))
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName
 
-const toastVariants = cva(styles.container, 'group', {
+const toastVariants = cva(cn(styles.container, 'group'), {
     variants: {
         variant: {
-            default: 'bg-background border',
-            danger: 'group border-danger bg-danger text-danger-fg',
+            default: styles.default,
+            danger: cn('group', styles.danger),
         },
     },
     defaultVariants: {

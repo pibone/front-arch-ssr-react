@@ -1,23 +1,22 @@
-.container {
+div:where(.container) {
     @apply rounded-lg border bg-card text-card-fg shadow-sm;
-}
+    :where(.header) {
+        @apply flex flex-col space-y-1.5 p-6;
+    }
 
-.header {
-    @apply flex flex-col space-y-1.5 p-6;
-}
+    :where(.title) {
+        @apply text-lg font-semibold leading-none tracking-tight;
+    }
 
-.title {
-    @apply text-lg font-semibold leading-none tracking-tight;
-}
+    :where(.description) {
+        @apply text-sm text-muted-fg;
+    }
 
-.description {
-    @apply text-sm text-muted-fg;
-}
+    :where(.content) {
+        @apply p-6 pt-0;
+    }
 
-.content {
-    @apply p-6 pt-0;
-}
-
-.footer {
-    @apply flex items-center p-6 pt-0;
+    :where(.footer) {
+        @apply flex items-center p-6 pt-0;
+    }
 }

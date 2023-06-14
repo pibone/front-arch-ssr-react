@@ -1,55 +1,59 @@
-.container {
+div:where(.container) {
     @apply flex h-10 items-center space-x-1 rounded-md border bg-background p-1;
+
+    :where(.trigger) {
+        @apply flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
+    }
 }
 
-.trigger {
-    @apply flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
+div:where(.content),
+div:where(.subcontent) {
+    @apply z-50 overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md;
+    :where(.subtrigger) {
+        @apply flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
+    }
+
+    :where(.item) {
+        @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+    }
+
+    :where(.checkboxItem) {
+        @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+    }
+
+    :where(.radioItem) {
+        @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+    }
+
+    :where(.indicator) {
+        @apply absolute left-2 flex h-3.5 w-3.5 items-center justify-center;
+    }
+
+    :where(.label) {
+        @apply px-2 py-1.5 text-sm font-semibold;
+    }
+
+    :where(.icon) {
+        @apply h-4 w-4;
+    }
+
+    :where(.inset) {
+        @apply pl-8;
+    }
+
+    :where(.separator) {
+        @apply -mx-1 my-1 h-px bg-muted;
+    }
+
+    :where(.shortcut) {
+        @apply ml-auto text-xs tracking-widest text-muted-fg;
+    }
 }
 
-.subtrigger {
-    @apply flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[state=open]:bg-accent data-[state=open]:text-accent-fg;
+div:where(.content) {
+    @apply min-w-[12rem];
 }
 
-.content {
-    @apply z-50 min-w-[12rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md;
-}
-
-.subcontent {
-    @apply z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-fg shadow-md;
-}
-
-.item {
-    @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
-}
-
-.checkboxItem {
-    @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
-}
-
-.radioItem {
-    @apply relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
-}
-
-.indicator {
-    @apply absolute left-2 flex h-3.5 w-3.5 items-center justify-center;
-}
-
-.label {
-    @apply px-2 py-1.5 text-sm font-semibold;
-}
-
-.icon {
-    @apply h-4 w-4;
-}
-
-.inset {
-    @apply pl-8;
-}
-
-.separator {
-    @apply -mx-1 my-1 h-px bg-muted;
-}
-
-.shortcut {
-    @apply ml-auto text-xs tracking-widest text-muted-fg;
+div:where(.subcontent) {
+    @apply min-w-[8rem];
 }

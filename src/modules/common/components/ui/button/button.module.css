@@ -1,52 +1,56 @@
-.container {
-    @apply inline-flex items-center justify-center 
-    rounded-md text-sm font-medium 
-    transition-colors 
-    focus-visible:outline-none focus-visible:ring-2 
-    focus-visible:ring-ring focus-visible:ring-offset-2
-    disabled:opacity-50 disabled:pointer-events-none 
-    ring-offset-background;
-}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    &:where(.container) {
+        @apply inline-flex items-center justify-center
+            rounded-md text-sm font-medium
+            transition-colors
+            focus-visible:outline-none focus-visible:ring-2
+            focus-visible:ring-ring focus-visible:ring-offset-2
+            disabled:opacity-50 disabled:pointer-events-none
+            ring-offset-background;
+    }
 
-/* variants */
+    /* variants */
+    &:where(.primary) {
+        @apply bg-primary text-primary-fg hover:bg-primary/90;
+    }
 
-.primary {
-    @apply bg-primary text-primary-fg hover:bg-primary/90;
-}
+    &:where(.secondary) {
+        @apply bg-secondary text-secondary-fg hover:bg-secondary/80;
+    }
 
-.secondary {
-    @apply bg-secondary text-secondary-fg hover:bg-secondary/80;
-}
+    &:where(.danger) {
+        @apply bg-danger text-danger-fg hover:bg-danger/90;
+    }
 
-.danger {
-    @apply bg-danger text-danger-fg hover:bg-danger/90;
-}
+    &:where(.muted) {
+        @apply bg-muted text-muted-fg cursor-not-allowed;
+    }
 
-.muted {
-    @apply bg-muted text-muted-fg cursor-not-allowed;
-}
+    &:where(.outline) {
+        @apply border border-input hover:bg-accent hover:text-accent-fg;
+    }
 
-.outline {
-    @apply border border-input hover:bg-accent hover:text-accent-fg;
-}
+    &:where(.ghost) {
+        @apply hover:bg-accent hover:text-accent-fg;
+    }
 
-.ghost {
-    @apply hover:bg-accent hover:text-accent-fg;
-}
+    &:where(.link) {
+        @apply underline-offset-4 hover:underline text-primary;
+    }
 
-.link {
-    @apply underline-offset-4 hover:underline text-primary;
-}
+    /* sizes */
+    &:where(.md) {
+        @apply h-10 py-2 px-4;
+    }
 
-/* sizes */
-.md {
-    @apply h-10 py-2 px-4;
-}
+    &:where(.sm) {
+        @apply h-9 px-3 rounded-md;
+    }
 
-.sm {
-    @apply h-9 px-3 rounded-md;
-}
-
-.lg {
-    @apply h-11 px-8 rounded-md;
+    &:where(.lg) {
+        @apply h-11 px-8 rounded-md;
+    }
 }
