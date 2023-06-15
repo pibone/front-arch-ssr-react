@@ -1,17 +1,14 @@
 import { ComponentPropsWithoutRef, createContext, useContext } from 'react'
-import { AxiosInstance } from 'axios'
-import axiosInstance from './axios.instance'
+import { ApiContext, DEFAULT_API_CONTEXT } from './api-context.default'
 
-export type ApiContext = { client: AxiosInstance }
-export const DEFAULT_API_CONTEXT = Object.freeze({ client: axiosInstance })
-const ApiContext = createContext<ApiContext>(DEFAULT_API_CONTEXT)
+const Api_Context = createContext<ApiContext>(DEFAULT_API_CONTEXT)
 
 export const ApiContextProvider = ({
     value,
     ...props
 }: WithOptional<
-    ComponentPropsWithoutRef<typeof ApiContext.Provider>,
+    ComponentPropsWithoutRef<typeof Api_Context.Provider>,
     'value'
->) => <ApiContext.Provider {...props} value={value || DEFAULT_API_CONTEXT} />
+>) => <Api_Context.Provider {...props} value={value || DEFAULT_API_CONTEXT} />
 
-export const useApiContext = () => useContext(ApiContext)
+export const useApiContext = () => useContext(Api_Context)

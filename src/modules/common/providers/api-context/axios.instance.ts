@@ -13,27 +13,4 @@ const axiosInstance = axios.create({
     },
 })
 
-axiosInstance.interceptors.request.use(async (config) => {
-    console.log('request intercepted')
-    if (isServer) {
-        const { cookies } = await import('next/headers'),
-            token = cookies().get('token')?.value
-
-        if (token) {
-            config.headers['Authorization'] = `Bearer ${token}`
-        }
-    } else {
-        const token = document.cookie.replace(
-            /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
-            '$1'
-        )
-
-        if (token) {
-            config.headers['Authorization'] = `Bearer ${token}`
-        }
-    }
-
-    return config
-})
-
 export default axiosInstance
