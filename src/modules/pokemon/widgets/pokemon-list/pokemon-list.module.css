@@ -1,0 +1,10 @@
+.container {
+    margin: 4px;
+}
+
+.pokedexGrid {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 250px));
+    gap: 8px;
+}
