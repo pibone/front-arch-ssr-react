@@ -21,6 +21,18 @@ export const {{ camelCase name }}ApiProto = (
         urlParams: UrlParams,
         queryParams: Record<string, string>
     ) => {
+        //TODO: clean query params if necessary
+        /*
+        for (const key in queryParams) {
+            if (
+                queryParams[key] === '' ||
+                queryParams[key] === undefined ||
+                queryParams[key] === null
+            ) {
+                delete queryParams[key]
+            }
+        }
+        */
         const queryParamString = new URLSearchParams(queryParams).toString()
         const resourceIdParam =
             urlParams.resourceId === undefined ? '' : `/${urlParams.resourceId}`
